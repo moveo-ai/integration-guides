@@ -30,6 +30,7 @@ const { sign } = jwt;
  */
 export const PRIVATE_RSA_KEYS = {
   demo: process.env.PRIVATE_PISTI_RSA_KEY,
+  '109005231568317': process.env.PRIVATE_PISTI_RSA_KEY,
 };
 
 /**
