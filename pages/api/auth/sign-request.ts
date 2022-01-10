@@ -41,7 +41,7 @@ export const PRIVATE_RSA_KEYS = {
 export function signJWT(sender_id: string, secret: string) {
   const payload = {
     sub: sender_id, // Required
-    iss: 'www.webviews.moveo.ai', // Required
+    iss: 'www.integration-guides.moveo.ai', // Required
   };
 
   // The "expiresIn" option adds an "exp" claim to the payload.
