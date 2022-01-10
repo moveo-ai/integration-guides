@@ -17,20 +17,20 @@ import theme from '../../styles/theme';
 import { demoSchema } from '../../util/validator';
 
 const genders = [
-  { label: 'Κύριος', value: 'male' },
-  { label: 'Κυρία', value: 'female' },
+  { label: 'Male', value: 'male' },
+  { label: 'Female', value: 'female' },
+  { label: 'Other', value: 'other' },
 ];
 
 const placeholders = {
-  firstName: 'Όνομα',
-  lastName: 'Επίθετο',
-  gender: 'Προσφώνηση',
-  afm: 'ΑΦΜ',
-  region: 'Νομός',
-  city: 'Πόλη',
-  address: 'Διεύθυνση',
-  zipCode: 'Τ.Κ',
-  phoneNumber: 'Κινητό τηλέφωνο',
+  firstName: 'Name',
+  lastName: 'Surname',
+  gender: 'Gender',
+  region: 'Region',
+  city: 'City',
+  address: 'Address',
+  zipCode: 'Zip code',
+  phoneNumber: 'Phone number',
   email: 'Email',
 };
 
@@ -38,7 +38,6 @@ type FormInputs = {
   firstName: string;
   lastName: string;
   gender: string;
-  afm: string;
   region: string;
   city: string;
   address: string;
@@ -90,7 +89,6 @@ function Demo() {
       firstName: '',
       lastName: '',
       gender: '',
-      afm: '',
       region: '',
       city: '',
       address: '',
@@ -212,15 +210,6 @@ function Demo() {
             <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
               <Input
                 control={control}
-                errors={errors.afm}
-                name="afm"
-                placeholder={placeholders.afm}
-                type="number"
-              />
-            </div>
-            <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
-              <Input
-                control={control}
                 errors={errors.region}
                 name="region"
                 placeholder={placeholders.region}
@@ -277,16 +266,15 @@ function Demo() {
             <div className="flex flex-wrap pb-12">
               <div className="px-2 w-full h-20">
                 <span className="disclaimer-text">
-                  Τα προσωπικά δεδομένα που καταχωρείτε θα αποθηκευτούν και θα
-                  τύχουν επεξεργασίας από την Εταιρία μόνο σε περίπτωση
-                  ολοκλήρωσης της παρούσας αίτησης.
+                  The personal data that you insert will be stored and used by
+                  the company only when you submit this Form.
                 </span>
               </div>
             </div>
           </div>
           <div className="px-2 w-full">
             <Button type="submit" variant="contained" color="primary">
-              ΣΥΝΕΧΕΙΑ
+              Continue
             </Button>
           </div>
         </form>
