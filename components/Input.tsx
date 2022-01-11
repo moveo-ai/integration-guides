@@ -15,7 +15,6 @@ const Input = ({
   type,
   upperCase,
   inputMode,
-  autoComplete,
 }) => {
   const formatInput = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -63,7 +62,7 @@ const Input = ({
               type={type}
               value={value}
               inputMode={inputMode}
-              autoComplete={autoComplete}
+              autoComplete="off"
               inputProps={type === 'number' ? { pattern: '[0-9]*' } : {}}
               onChange={(e) => handleChange(e, onChange)}
             />
