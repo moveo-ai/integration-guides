@@ -30,13 +30,17 @@ export const errorMessage = (name: string, errors: { type: string }) => {
   }
   if (errors?.type === 'matches') {
     switch (name) {
-      case 'name':
-      case 'surname':
+      case 'firstName':
+        return `Only Greek or Latin characters are allowed`;
+      case 'lastName':
+        return `Only Greek or Latin characters are allowed`;
       case 'fatherName':
+        return `Only Greek or Latin characters are allowed`;
       case 'region':
+        return `Only Greek or Latin characters are allowed`;
       case 'city':
         return `Only Greek or Latin characters are allowed`;
-      case 'phone_number':
+      case 'phoneNumber':
         return 'Please insert valid phone number';
       case 'email':
         return 'Please insert valid email address';

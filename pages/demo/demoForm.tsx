@@ -185,6 +185,8 @@ function Demo() {
                 name="firstName"
                 placeholder={placeholders.firstName}
                 upperCase
+                autoComplete="name"
+                type="string"
               />
             </div>
             <div className="mb-4 md:w-1/3 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -194,6 +196,8 @@ function Demo() {
                 name="lastName"
                 placeholder={placeholders.lastName}
                 upperCase
+                autoComplete="family-name"
+                type="string"
               />
             </div>
             <div className="mb-4 md:w-1/3 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -231,7 +235,8 @@ function Demo() {
                 errors={errors.address}
                 name="address"
                 placeholder={placeholders.address}
-                type="string"
+                type="text"
+                autoComplete="street-address"
               />
             </div>
             <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -241,6 +246,7 @@ function Demo() {
                 name="zipCode"
                 placeholder={placeholders.zipCode}
                 type="number"
+                autoComplete="postal-code"
               />
             </div>
             <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -249,7 +255,8 @@ function Demo() {
                 errors={errors.phoneNumber}
                 placeholder={placeholders.phoneNumber}
                 name="phoneNumber"
-                type="number"
+                type="tel"
+                autoComplete="tel-national"
               />
             </div>
             <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -259,6 +266,7 @@ function Demo() {
                 placeholder={placeholders.email}
                 name="email"
                 type="email"
+                autoComplete="email"
               />
             </div>
           </div>
