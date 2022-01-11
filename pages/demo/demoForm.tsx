@@ -187,7 +187,6 @@ function Demo() {
                 upperCase
                 autoComplete="name"
                 type="string"
-                inputMode="text"
               />
             </div>
             <div className="mb-4 md:w-1/3 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -199,7 +198,6 @@ function Demo() {
                 upperCase
                 autoComplete="family-name"
                 type="string"
-                inputMode="text"
               />
             </div>
             <div className="mb-4 md:w-1/3 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -220,7 +218,6 @@ function Demo() {
                 name="region"
                 placeholder={placeholders.region}
                 type="string"
-                inputMode="text"
               />
             </div>
             <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -230,7 +227,6 @@ function Demo() {
                 name="city"
                 placeholder={placeholders.city}
                 type="string"
-                inputMode="text"
               />
             </div>
             <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -240,7 +236,6 @@ function Demo() {
                 name="address"
                 placeholder={placeholders.address}
                 type="text"
-                inputMode="text"
                 autoComplete="street-address"
               />
             </div>
@@ -252,7 +247,6 @@ function Demo() {
                 placeholder={placeholders.zipCode}
                 type="number"
                 autoComplete="postal-code"
-                inputMode="decimal"
               />
             </div>
             <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -262,7 +256,6 @@ function Demo() {
                 placeholder={placeholders.phoneNumber}
                 name="phoneNumber"
                 type="tel"
-                inputMode="tel"
                 autoComplete="tel-national"
               />
             </div>
@@ -273,7 +266,6 @@ function Demo() {
                 placeholder={placeholders.email}
                 name="email"
                 type="email"
-                inputMode="email"
                 autoComplete="email"
               />
             </div>
