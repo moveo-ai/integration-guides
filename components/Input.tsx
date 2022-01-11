@@ -14,6 +14,8 @@ const Input = ({
   onBlur,
   type,
   upperCase,
+  inputMode,
+  autoComplete,
 }) => {
   const formatInput = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -60,7 +62,8 @@ const Input = ({
               fullWidth
               type={type}
               value={value}
-              autoComplete="off"
+              inputMode={inputMode}
+              autoComplete={autoComplete}
               inputProps={type === 'number' ? { pattern: '[0-9]*' } : {}}
               onChange={(e) => handleChange(e, onChange)}
             />
@@ -83,6 +86,8 @@ Input.propTypes = {
   information: PropTypes.string,
   onBlur: PropTypes.func.isRequired,
   type: PropTypes.string,
+  autoComplete: PropTypes.string,
+  inputMode: PropTypes.string,
   upperCase: PropTypes.bool,
 };
 
@@ -91,6 +96,8 @@ Input.defaultProps = {
   placeholder: '',
   information: '',
   type: 'text',
+  inputMode: 'none',
+  autoComplete: 'off',
   upperCase: false,
   onBlur: () => null,
 };

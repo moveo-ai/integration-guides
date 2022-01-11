@@ -30,7 +30,7 @@ const ConfirmationBox = ({
             alt="person "
             src="/assets/person.svg"
           />
-          Τα στοιχεία σου
+          Your information
         </span>
       </DialogTitle>
       <List>
@@ -60,10 +60,10 @@ const ConfirmationBox = ({
       </List>
       <div className="buttons-container">
         <Button onClick={handleClose} variant="contained">
-          ΕΠΙΣΤΡΟΦΗ
+          BACK
         </Button>
         <Button onClick={handleSubmitData} variant="contained" color="primary">
-          ΑΠΟΣΤΟΛΗ
+          SEND
         </Button>
       </div>
       <style jsx>{`
