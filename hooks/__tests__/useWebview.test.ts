@@ -2,11 +2,13 @@ import { renderHook } from '@testing-library/react-hooks';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import initFacebookSDK, * as facebook from '../../lib/facebook';
-import { createLocationFromUrl } from '../../pages/api/demo/util/test-utils';
 import { sleep } from '../../util/util';
 import useWebview from '../useWebview';
 
 jest.mock('../../lib/facebook');
+
+const createLocationFromUrl = (url: string) =>
+  new URL(url) as unknown as Location;
 
 describe('useWebview', () => {
   const server = setupServer(

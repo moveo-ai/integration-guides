@@ -26,12 +26,10 @@ jobs:
       - run: npm install
       - run: npm run lint --if-present
       - run: npm run build --if-present
-      - run: npm run bundlesize
       - run: npm test
         env:
           CI: true
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
