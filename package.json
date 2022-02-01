@@ -1,5 +1,5 @@
 {
-  "name": "integration-guides",
+  "name": "@moveo-ai/integration-guides",
   "version": "0.1.1",
   "description": "Integration-guides for Môveo.AI",
   "private": true,
@@ -102,6 +102,11 @@
     "prettier-plugin-organize-imports": "2.3.4",
     "react-test-renderer": "17.0.2",
     "typescript": "^4.5.5"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
