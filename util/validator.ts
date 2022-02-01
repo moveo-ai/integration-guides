@@ -53,7 +53,6 @@ export const errorMessage = (name: string, errors: { type: string }) => {
   return '';
 };
 const namePattern = /^[a-zA-Z\u0386-\u03ce]{1}[a-zA-z\u0386-\u03ce\s]*$/;
-const afmPattern = /^[0-4]{1}[0-9]{8}$/;
 const addressPattern =
   /^[a-zA-Z\u0386-\u03ce]{1}[.a-zA-z\u0386-\u03ce\s\-\d]*$/;
 const zipCodePattern = /^[0-9]{5}$/;
