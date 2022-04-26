@@ -112,7 +112,7 @@ function Demo() {
   };
 
   const postMessageToParent = () => {
-    window.top.postMessage('closeModal', '*');
+    window.parent?.postMessage('closeModal', '*');
   };
 
   const handleSubmitData = () => {
