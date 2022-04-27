@@ -1,4 +1,4 @@
-export type PurchaseType = 'TV' | 'Laptop' | 'Keyboard' | 'XBOX';
+export type PurchaseType = 'TV' | 'Laptop' | 'Keyboard' | 'XBOX' | 'Mouse';
 export type PurchaseStatus = 'Completed' | 'Failed' | 'Pending';
 
 export type Purchase = {

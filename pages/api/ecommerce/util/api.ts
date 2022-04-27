@@ -24,6 +24,32 @@ export const listPurchases = async (
   // API results are mocked
   return [
     {
+        PurchaseId: 10303049,
+        Price: 190,
+        Type: 'Keyboard',
+        ProductURL:
+          'https://www.skroutz.gr/s/24785578/Logitech-G915-TKL-Ασύρματο-Gaming-Μηχανικό-Πληκτρολόγιο-Tenkeyless-με-GL-Tactile-διακόπτες-και-RGB-φωτισμό-Αγγλικό-US-Λευκό.html',
+        ReturnURL: 'https://www.skroutz.gr/ecommerce/return_policy',
+        Status: 'Completed',
+        Description: 'Logitech Wireless Keyboard',
+        Date: '2022-04-12T18:22:47.81',
+        ImageURL:
+          'https://a.scdn.gr/images/sku_main_images/032009/32009883/xlarge_20211110153952_mediarange_mros132_gr_asyrmato_bluetooth_pliktrologio_elliniko_asimi.jpeg',
+    },
+    {
+        PurchaseId: 10303049,
+        Price: 190,
+        Type: 'Mouse',
+        ProductURL:
+          'https://www.skroutz.gr/s/23123626/Xiaomi-Mi-Dual-Mode-Ασύρματο-Bluetooth-Mini-Ποντίκι-Μαύρο.html?from=best_sellers_tag',
+        ReturnURL: 'https://www.skroutz.gr/ecommerce/return_policy',
+        Status: 'Completed',
+        Description: 'Xiaomi Mi Dual Mode Mouse',
+        Date: '2022-04-13T18:22:47.81',
+        ImageURL:
+          'https://b.scdn.gr/images/sku_main_images/023123/23123626/xlarge_20211215131712_xiaomi_mi_dual_mode_asyrmato_bluetooth_mini_pontiki_mayro.jpeg'
+    },
+    {
       PurchaseId: 23930304,
       Price: 3000,
       Type: 'Laptop',
@@ -48,19 +74,6 @@ export const listPurchases = async (
       Date: '2022-04-19T15:22:47.81',
       ImageURL:
         'https://a.scdn.gr/images/sku_main_images/019953/19953854/xlarge_20200304152526_zeroground_kb_2800g_satomi.jpeg',
-    },
-    {
-      PurchaseId: 10303049,
-      Price: 190,
-      Type: 'Keyboard',
-      ProductURL:
-        'https://www.skroutz.gr/s/24785578/Logitech-G915-TKL-Ασύρματο-Gaming-Μηχανικό-Πληκτρολόγιο-Tenkeyless-με-GL-Tactile-διακόπτες-και-RGB-φωτισμό-Αγγλικό-US-Λευκό.html',
-      ReturnURL: 'https://www.skroutz.gr/ecommerce/return_policy',
-      Status: 'Completed',
-      Description: 'Logitech Wireless Keyboard',
-      Date: '2022-04-19T18:22:47.81',
-      ImageURL:
-        'https://a.scdn.gr/images/sku_main_images/032009/32009883/xlarge_20211110153952_mediarange_mros132_gr_asyrmato_bluetooth_pliktrologio_elliniko_asimi.jpeg',
     },
     {
       PurchaseId: 10303049,
