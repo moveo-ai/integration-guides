@@ -1,5 +1,27 @@
-import { NextApiRequest } from 'next';
+import { NextApiHandler, NextApiRequest } from 'next';
 import pino from 'pino';
+
+declare global {
+  namespace NodeJS {
+    interface ProcessEnv {
+      PRIVATE_RSA_KEY: string;
+
+      // Deprecated variable use the one above
+      PISTI_PRIVATE_RSA_KEY: string;
+      PRIVATE_PISTI_RSA_KEY: string;
+
+      VERCEL_ENV: string;
+      VERCEL: string;
+
+      // Only in kubernetes
+      MY_POD_NAME: string;
+
+      USE_PROXY: string;
+      NODE_ENV: 'development' | 'production';
+      PORT?: string;
+    }
+  }
+}
 
 type MoveoChannel =
   | 'facebook'
@@ -17,11 +39,15 @@ type MoveoContextWithPageInfo = {
 };
 
 interface MoveoContext {
-  [key: string]: string | number | boolean | null;
+  [key: string]: string | number | boolean | null | undefined;
 }
 
+/**
+ * Output/Responses can be undefined in case no context variables are
+ * returned and because `{}` does not work in TypeScript
+ */
 interface WebhookResponse {
-  output: MoveoContext;
+  output?: MoveoContext;
   responses?: Action[];
 }
 
@@ -112,5 +138,3 @@ type ApiHandler<T = any> =
       req: NextApiRequestWithLog,
       res: NextApiResponse<T>
     ) => void | Promise<void>);
-
-type Language = 'el' | 'en' | 'ro' | 'pt-br' | 'it' | 'de' | 'es' | 'fr' | 'bg';
