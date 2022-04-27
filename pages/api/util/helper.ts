@@ -17,8 +17,7 @@ export const checkHmacSignature = (
 ) => {
   const bodyAsString = Buffer.from(req.rawBody as never).toString('utf-8');
   const requiredSignature = req?.headers[X_MOVEO_SIGNATURE];
-  console.log("body; ", bodyAsString)
-  console.log("signature: ", requiredSignature)
+
   const signature = encodeHMAC(bodyAsString, secret);
 
   req.log.info(
