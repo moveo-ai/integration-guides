@@ -47,7 +47,7 @@ export const listPurchases = async (
       Description: 'Satomi Gaming Keyboard',
       Date: '2022-04-19T15:22:47.81',
       ImageURL:
-        'https://a.scdn.gr/images/sku_main_images/019953/19953854/xlarge_20200304152526_zeroground_kb_2800g_satomi.jpeg',
+        'https://a.scdn.gr/images/sku_main_images/032009/32009883/xlarge_20211110153952_mediarange_mros132_gr_asyrmato_bluetooth_pliktrologio_elliniko_asimi.jpeg',
     },
     {
       PurchaseId: 10303049,
