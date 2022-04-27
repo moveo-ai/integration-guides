@@ -166,7 +166,7 @@ export function purchaseCardsFromAPI(
         {
           purchase_id: purchase.PurchaseId,
         },
-        `Ignoring purchase with date ${purchase.Date} since it happened after cursor at: ${cursor}`
+        `Ignoring purchase with date ${purchase.Date} since it happened after cursor at: ${lastValidDate}`
       );
       continue;
     }

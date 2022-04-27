@@ -19,7 +19,7 @@ export const listPurchases = async (
     'X-Request-Id': request_id,
   };
 
-  logger.info(data, headers, `Retrieving purchases from ${url}`);
+  logger.info({...data, ...headers}, `Retrieving purchases from ${url}`);
 
   // API results are mocked
   return [
@@ -58,7 +58,7 @@ export const listPurchases = async (
       ReturnURL: 'https://www.skroutz.gr/ecommerce/return_policy',
       Status: 'Completed',
       Description: 'Logitech Wireless Keyboard',
-      Date: '2022-04-19T15:22:47.81',
+      Date: '2022-04-19T18:22:47.81',
       ImageURL:
         'https://b.scdn.gr/images/sku_main_images/024785/24785578/xlarge_20200916102528_logitech_g915_tkl_lightspeed_gl_tactile.jpeg',
     },
@@ -71,7 +71,7 @@ export const listPurchases = async (
       ReturnURL: 'https://www.skroutz.gr/ecommerce/return_policy',
       Status: 'Completed',
       Description: 'Samsung Smart TV',
-      Date: '2022-05-19T18:20:41.86',
+      Date: '2022-04-20T18:20:41.86',
       ImageURL:
         'https://b.scdn.gr/images/sku_main_images/027732/27732284/xlarge_20211123151309_samsung_smart_tileorasi_led_4k_uhd_ue50au7172_hdr_50.jpeg',
     },
@@ -84,7 +84,7 @@ export const listPurchases = async (
       ReturnURL: 'https://www.skroutz.gr/ecommerce/return_policy',
       Status: 'Completed',
       Description: 'Xbox Series S',
-      Date: '2022-06-19T18:20:41.86',
+      Date: '2022-04-21T18:20:41.86',
       ImageURL:
         'https://d.scdn.gr/images/sku_main_images/024662/24662008/xlarge_20211124164548_microsoft_xbox_series_s.jpeg',
     },
