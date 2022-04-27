@@ -5,7 +5,7 @@ import { AuthorizationError } from '../../../util/errors';
 export function encodeHMAC(data: crypto.BinaryLike, secret: string): string {
   return crypto.createHmac('sha256', secret).update(data).digest('hex');
 }
-
+export const MAX_CARDS_PER_CAROUSEL = 5;
 export const X_MOVEO_SIGNATURE = 'x-moveo-signature';
 
 /**

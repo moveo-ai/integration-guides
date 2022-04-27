@@ -112,3 +112,5 @@ type ApiHandler<T = any> =
       req: NextApiRequestWithLog,
       res: NextApiResponse<T>
     ) => void | Promise<void>);
+
+type Language = 'el' | 'en' | 'ro' | 'pt-br' | 'it' | 'de' | 'es' | 'fr' | 'bg';
