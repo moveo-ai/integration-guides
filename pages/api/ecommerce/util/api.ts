@@ -47,7 +47,7 @@ export const listPurchases = async (
       Description: 'Satomi Gaming Keyboard',
       Date: '2022-04-19T15:22:47.81',
       ImageURL:
-        'https://a.scdn.gr/images/sku_main_images/032009/32009883/xlarge_20211110153952_mediarange_mros132_gr_asyrmato_bluetooth_pliktrologio_elliniko_asimi.jpeg',
+        'https://a.scdn.gr/images/sku_main_images/019953/19953854/xlarge_20200304152526_zeroground_kb_2800g_satomi.jpeg',
     },
     {
       PurchaseId: 10303049,
@@ -60,7 +60,7 @@ export const listPurchases = async (
       Description: 'Logitech Wireless Keyboard',
       Date: '2022-04-19T18:22:47.81',
       ImageURL:
-        'https://b.scdn.gr/images/sku_main_images/024785/24785578/xlarge_20200916102528_logitech_g915_tkl_lightspeed_gl_tactile.jpeg',
+        'https://a.scdn.gr/images/sku_main_images/032009/32009883/xlarge_20211110153952_mediarange_mros132_gr_asyrmato_bluetooth_pliktrologio_elliniko_asimi.jpeg',
     },
     {
       PurchaseId: 10303049,
@@ -86,7 +86,7 @@ export const listPurchases = async (
       Description: 'Xbox Series S',
       Date: '2022-04-21T18:20:41.86',
       ImageURL:
-        'https://d.scdn.gr/images/sku_main_images/024662/24662008/xlarge_20211124164548_microsoft_xbox_series_s.jpeg',
+        'https://b.scdn.gr/images/sku_main_images/020592/20592739/xlarge_20191018102824_microsoft_xbox_one_x_1tb_star_wars_jedi_fallen_order.jpeg'
     },
   ];
 };
