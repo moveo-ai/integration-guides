@@ -6,6 +6,19 @@ Templates, examples and guides around adding your own Webhooks and Webviews in M
 
 [Webhook documentation](https://docs.moveo.ai/docs/get_started/response_webhook)
 
+# Getting started
+
+```sh
+npm install
+```
+
+```sh
+npm run dev
+# or
+yarn dev
+```
+
+
 The RSA keys used for authentication in this repository:
 
 Public RSA Key
