@@ -14,14 +14,14 @@ export function successResponse(cards, newCursor: string): WebhookResponse {
   if (cards) {
     return {
       responses: [{ action_id: uuidv4(), type: 'carousel', cards }],
-      output: { deposit_cursor: newCursor },
+      output: { purchase_cursor: newCursor },
     };
   }
   return { responses: [], output: {} };
 }
 
 /**
- *  Gets all recent deposits for a given customer id
+ *  Gets all recent purchases for a given customer id
  */
 const handler = async (
   req: NextApiRequestWithLog,
@@ -76,7 +76,7 @@ const handler = async (
       log,
       purcheses,
       lang,
-      context?.deposit_cursor
+      context?.purchase_cursor
     );
 
     if (cards.length === 0) {

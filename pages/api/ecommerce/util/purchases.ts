@@ -70,7 +70,7 @@ export function createLastPurchaseCard(
 
   return {
     media: {
-      url: 'https://moveo-stoiximan-resources.s3.ap-south-1.amazonaws.com/atm.png',
+      url: 'https://media.wired.com/photos/59325eba9be5e55af6c246eb/191:100/w_1280,c_limit/amazoncart-feat.jpg',
       type: 'image',
     },
     title,
