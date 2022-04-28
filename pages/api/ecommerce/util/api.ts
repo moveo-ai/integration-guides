@@ -19,35 +19,35 @@ export const listPurchases = async (
     'X-Request-Id': request_id,
   };
 
-  logger.info({...data, ...headers}, `Retrieving purchases from ${url}`);
+  logger.info({ ...data, ...headers }, `Retrieving purchases from ${url}`);
 
   // API results are mocked
   return [
     {
-        PurchaseId: 10303049,
-        Price: 190,
-        Type: 'Keyboard',
-        ProductURL:
-          'https://www.skroutz.gr/s/24785578/Logitech-G915-TKL-Ασύρματο-Gaming-Μηχανικό-Πληκτρολόγιο-Tenkeyless-με-GL-Tactile-διακόπτες-και-RGB-φωτισμό-Αγγλικό-US-Λευκό.html',
-        ReturnURL: 'https://www.skroutz.gr/ecommerce/return_policy',
-        Status: 'Completed',
-        Description: 'Logitech Wireless Keyboard',
-        Date: '2022-04-12T18:22:47.81',
-        ImageURL:
-          'https://a.scdn.gr/images/sku_main_images/032009/32009883/xlarge_20211110153952_mediarange_mros132_gr_asyrmato_bluetooth_pliktrologio_elliniko_asimi.jpeg',
+      PurchaseId: 10303049,
+      Price: 190,
+      Type: 'Keyboard',
+      ProductURL:
+        'https://www.skroutz.gr/s/24785578/Logitech-G915-TKL-Ασύρματο-Gaming-Μηχανικό-Πληκτρολόγιο-Tenkeyless-με-GL-Tactile-διακόπτες-και-RGB-φωτισμό-Αγγλικό-US-Λευκό.html',
+      ReturnURL: 'https://www.skroutz.gr/ecommerce/return_policy',
+      Status: 'Completed',
+      Description: 'Logitech Wireless Keyboard',
+      Date: '2022-04-12T18:22:47.81',
+      ImageURL:
+        'https://a.scdn.gr/images/sku_main_images/032009/32009883/xlarge_20211110153952_mediarange_mros132_gr_asyrmato_bluetooth_pliktrologio_elliniko_asimi.jpeg',
     },
     {
-        PurchaseId: 10303049,
-        Price: 190,
-        Type: 'Mouse',
-        ProductURL:
-          'https://www.skroutz.gr/s/23123626/Xiaomi-Mi-Dual-Mode-Ασύρματο-Bluetooth-Mini-Ποντίκι-Μαύρο.html?from=best_sellers_tag',
-        ReturnURL: 'https://www.skroutz.gr/ecommerce/return_policy',
-        Status: 'Completed',
-        Description: 'Xiaomi Mi Dual Mode Mouse',
-        Date: '2022-04-13T18:22:47.81',
-        ImageURL:
-          'https://b.scdn.gr/images/sku_main_images/023123/23123626/xlarge_20211215131712_xiaomi_mi_dual_mode_asyrmato_bluetooth_mini_pontiki_mayro.jpeg'
+      PurchaseId: 10303049,
+      Price: 190,
+      Type: 'Mouse',
+      ProductURL:
+        'https://www.skroutz.gr/s/23123626/Xiaomi-Mi-Dual-Mode-Ασύρματο-Bluetooth-Mini-Ποντίκι-Μαύρο.html?from=best_sellers_tag',
+      ReturnURL: 'https://www.skroutz.gr/ecommerce/return_policy',
+      Status: 'Completed',
+      Description: 'Xiaomi Mi Dual Mode Mouse',
+      Date: '2022-04-13T18:22:47.81',
+      ImageURL:
+        'https://b.scdn.gr/images/sku_main_images/023123/23123626/xlarge_20211215131712_xiaomi_mi_dual_mode_asyrmato_bluetooth_mini_pontiki_mayro.jpeg',
     },
     {
       PurchaseId: 23930304,
@@ -99,7 +99,7 @@ export const listPurchases = async (
       Description: 'Xbox Series S',
       Date: '2022-04-21T18:20:41.86',
       ImageURL:
-        'https://b.scdn.gr/images/sku_main_images/020592/20592739/xlarge_20191018102824_microsoft_xbox_one_x_1tb_star_wars_jedi_fallen_order.jpeg'
+        'https://b.scdn.gr/images/sku_main_images/020592/20592739/xlarge_20191018102824_microsoft_xbox_one_x_1tb_star_wars_jedi_fallen_order.jpeg',
     },
   ];
 };
