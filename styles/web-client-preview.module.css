@@ -1,0 +1,55 @@
+.moveo_preview {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 10% 10% 0;
+}
+
+.preview_actions {
+  width: 510px;
+  margin-bottom: 36px;
+}
+.header_text {
+  font-style: normal;
+  font-weight: normal;
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 51px;
+
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.body_text {
+  font-family: var(--font-primary);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 30px;
+  margin-bottom: 36px;
+}
+
+.button_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.action_button {
+  font-family: var(--moveo-font-primary);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 16px;
+  margin-right: 16px;
+  color: #fff;
+  background-color: #1b66d6;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 0;
+  transition: 0.2s all linear;
+}
+
+.colored {
+  color: #1b66d6;
+}
