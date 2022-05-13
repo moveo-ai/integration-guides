@@ -34,6 +34,7 @@ body {
   font-family: var(--font-primary);
   height: 100%;
   overflow-x: hidden;
+  background-color: #e7e7e7;
 }
 
 button:focus,
