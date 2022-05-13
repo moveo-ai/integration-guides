@@ -47,7 +47,7 @@ pages
 ├── demo
 │   └── demoForm.tsx                       // Webviews are stored under the /demo folder
 ├── web-client
-│   └── web-client-instance.tsx                       // Webviews are stored under the /demo folder
+│   └── web-client-instance.tsx            // Web-client example ( hosted as a webview )
 └── index.tsx
 ```
 
