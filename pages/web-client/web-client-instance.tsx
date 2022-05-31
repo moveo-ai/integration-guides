@@ -26,6 +26,15 @@ const Index = () => {
           // You can use the instance to control the behaviot of the web-client
           // For all methods and events visit https://docs.moveo.ai/docs/integrations/web_instance_methods_and_events
 
+          instance.onSessionCreated(() => {
+            instance.updateContext({
+              global: { serial_number: '123456789', hasItemsInCart: true },
+              user: {
+                email: 'test@example.com',
+              },
+            });
+          });
+
           // You can assign the instance methods so they can be used in your own codebase
           const openButton = document.getElementById('open-chat-button');
 
