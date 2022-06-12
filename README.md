@@ -11,7 +11,7 @@ Templates, examples and guides around adding your own Webhooks and Webviews into
 1. Install dependencies using:
 
 ```sh
-npm install
+npm install --legacy-peer-deps
 ```
 
 2. Run a local server listening on `localhost:3000` by executing:
