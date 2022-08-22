@@ -1,4 +1,5 @@
 import pino from 'pino';
+import { clothingPurchases } from './helper';
 import { Purchase } from './models';
 
 export const listPurchases = async (
@@ -6,7 +7,8 @@ export const listPurchases = async (
   user_id: string,
   session_id: string,
   request_id: string,
-  moveo_request_id: string
+  moveo_request_id: string,
+  isClothes?: boolean
 ): Promise<Purchase[]> => {
   const url = 'https://dummy-url-that-returns-purchases';
   const data = { CustomerId: user_id };
@@ -22,6 +24,9 @@ export const listPurchases = async (
   logger.info({ ...data, ...headers }, `Retrieving purchases from ${url}`);
 
   // API results are mocked
+
+  if (isClothes) return clothingPurchases;
+
   return [
     {
       PurchaseId: 10303049,

@@ -39,6 +39,7 @@ const handler = async (
   const user = context?.user;
   // external_id will always be populated for verified (authenticated) users
   const user_id = user?.external_id || user?.user_id;
+  const isClothes = req?.query?.isClothes ? true : false;
 
   /*
     Optionally enable authentication.
@@ -60,7 +61,8 @@ const handler = async (
       user_id,
       session_id,
       req.id,
-      req.moveo_id
+      req.moveo_id,
+      isClothes
     );
 
     if (!purcheses || purcheses.length === 0) {
@@ -76,7 +78,8 @@ const handler = async (
       log,
       purcheses,
       lang,
-      context?.purchase_cursor
+      context?.purchase_cursor,
+      isClothes
     );
 
     if (cards.length === 0) {
