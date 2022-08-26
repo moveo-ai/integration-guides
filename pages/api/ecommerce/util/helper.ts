@@ -13,7 +13,7 @@ export const clothingPurchases = [
       'https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
   },
   {
-    PurchaseId: 10303049,
+    PurchaseId: 10303050,
     Price: 120,
     Type: 'Shoes',
     Status: 'Completed',
@@ -33,7 +33,7 @@ export const clothingPurchases = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/HighKey_Backpack.png/723px-HighKey_Backpack.png?20200321020548',
   },
   {
-    PurchaseId: 10303049,
+    PurchaseId: 10303061,
     Price: 130,
     Type: 'Sweater',
     Status: 'Completed',
@@ -43,7 +43,7 @@ export const clothingPurchases = [
       'https://upload.wikimedia.org/wikipedia/commons/7/78/Christmas_Sweater.jpg',
   },
   {
-    PurchaseId: 10303049,
+    PurchaseId: 10303072,
     Price: 230,
     Type: 'Jacket',
     Status: 'Completed',
@@ -53,7 +53,7 @@ export const clothingPurchases = [
       'https://upload.wikimedia.org/wikipedia/commons/2/2f/Tracksuit_jacket.jpg',
   },
   {
-    PurchaseId: 10303049,
+    PurchaseId: 10303083,
     Price: 150,
     Type: 'Jacket',
     Status: 'Completed',
