@@ -20,9 +20,23 @@ export const errorMessage = (name: string, errors: { type: string }) => {
         return '';
     }
   }
+  if (errors?.type === 'length') {
+    switch (name) {
+      case 'productId':
+        return 'Please insert a 10 digit number';
+      case 'orderNo':
+        return 'Please insert a 10 digit number';
+      default:
+        return '';
+    }
+  }
   if (errors?.type === 'typeError') {
     switch (name) {
       case 'cardID':
+        return 'Only numbers are allowed';
+      case 'productId':
+        return 'Only numbers are allowed';
+      case 'orderNo':
         return 'Only numbers are allowed';
       default:
         return '';
@@ -66,6 +80,19 @@ export const demoSchema = yup.object().shape({
   gender: yup.string().max(LENGTH_S).required(),
   address: yup.string().max(LENGTH_S).required().matches(addressPattern),
   region: yup.string().max(LENGTH_S).required().matches(namePattern),
+  city: yup.string().max(LENGTH_S).required().matches(namePattern),
+  zipCode: yup.string().max(LENGTH_S).required().matches(zipCodePattern),
+  phoneNumber: yup.string().max(10).required().matches(phonePattern),
+  email: yup.string().max(LENGTH_S).required().matches(emailPattern),
+});
+
+export const returnProductSchema = yup.object().shape({
+  productId: yup.string().required().length(10),
+  orderNo: yup.string().required().length(10),
+  firstName: yup.string().max(64).required().matches(namePattern),
+  lastName: yup.string().max(64).required().matches(namePattern),
+  reason: yup.string().max(LENGTH_S).required(),
+  address: yup.string().max(LENGTH_S).required().matches(addressPattern),
   city: yup.string().max(LENGTH_S).required().matches(namePattern),
   zipCode: yup.string().max(LENGTH_S).required().matches(zipCodePattern),
   phoneNumber: yup.string().max(10).required().matches(phonePattern),
