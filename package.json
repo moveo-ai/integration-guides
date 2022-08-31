@@ -47,7 +47,7 @@
     "lodash.get": "4.4.2",
     "lru-cache": "6.0.0",
     "moment": "^2.29.3",
-    "moment-timezone": "0.5.34",
+    "moment-timezone": "0.5.35",
     "next": "^12.1.6",
     "node-rsa": "1.1.1",
     "papaparse": "^5.3.2",
