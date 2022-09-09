@@ -109,7 +109,6 @@ export const formatEventSearchResponse = (
     },
   };
 };
-
 export const formatNoMoreEventsResponse = (
   eventType: EventType,
   area: string

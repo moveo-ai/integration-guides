@@ -24,9 +24,10 @@ const handler = async (
   if (req.method !== 'POST') {
     throw new MethodNotAllowed(req.method);
   }
-
+  // Validate request
   checkHmacSignature(req, GET_EVENTS_TOKEN);
 
+  // Extract context variables from the request body
   const ctx = req?.body?.context as GetEventsContext;
   const {
     event_type_value: event_type,
@@ -38,6 +39,7 @@ const handler = async (
     brain_id,
   } = ctx;
 
+  // Check for missing parameters
   const params: string[] = [];
   if (!event_type) params.push('event_type_value');
   if (!area) params.push('area');
@@ -49,7 +51,7 @@ const handler = async (
 
   const log = req.log.child({ session_id, channel, brain_id, lang });
 
-  // Pages are used for subsequent searches
+  // Extract page. When page_number is negative we return a text response.
   let page = 0;
   if (page_number) {
     if (page_number < 0) {
@@ -59,6 +61,7 @@ const handler = async (
   }
 
   try {
+    // Get the data from dummy endpoint
     const resp = await API.getEvents(
       log,
       event_type,
@@ -68,6 +71,7 @@ const handler = async (
       req.id,
       req.moveo_id
     );
+    // Return a carousel using the data
     res.json(formatEventSearchResponse(resp, event_type, area, page, lang));
   } catch (error) {
     const message = `Error fetching events with type: ${event_type} and area: ${area}`;

@@ -92,8 +92,11 @@ const handler = async (
     req.log.warn(message);
     return res.json(formatError(5, message));
   }
+
+  // Create the search limits for price and size
   const highPrice = price * 1.15;
   const lowSize = size * 0.85;
+
   // Pages are used for subsequent searches
   let page = 0;
   if (pageNumber) {
