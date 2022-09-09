@@ -2,7 +2,7 @@ import { filter } from 'lodash';
 import pino from 'pino';
 import { NotFoundError } from '../../../../util/errors';
 import { events } from './helper';
-import { EventSearchResult, EventType } from './models';
+import { EventSearchResult, EventType, GetEventDatesResult } from './models';
 
 export const getEvents = async (
   logger: pino.Logger,
@@ -47,7 +47,7 @@ export const getDates = async (
   session_id: string,
   request_id: string,
   moveo_request_id: string
-): Promise<string[]> => {
+): Promise<GetEventDatesResult> => {
   const url = 'https://dummy-url-that-returns-dates';
 
   // these are some good headers to be passed to your API
@@ -65,7 +65,7 @@ export const getDates = async (
       { ...headers },
       `Retrieving dates for event with id: ${eventId} from ${url}`
     );
-    return event?.dates;
+    return { dates: event?.dates, price: event.price };
   }
 
   logger.warn({ ...headers }, `Could not find event with id: ${eventId}`);

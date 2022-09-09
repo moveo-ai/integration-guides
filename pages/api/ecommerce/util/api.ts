@@ -23,10 +23,9 @@ export const listPurchases = async (
 
   logger.info({ ...data, ...headers }, `Retrieving purchases from ${url}`);
 
-  // API results are mocked
-
   if (isClothes) return clothingPurchases;
 
+  // API results are mocked
   return [
     {
       PurchaseId: 10303049,

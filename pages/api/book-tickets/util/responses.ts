@@ -5,7 +5,13 @@ import {
   Language,
   WebhookResponse,
 } from '../../../../types/moveo';
-import { EventSearchResult, EventType, GetEventsResponse } from './models';
+import {
+  EventSearchResult,
+  EventType,
+  GetEventDatesResult,
+  GetEventsResponse,
+} from './models';
+
 const PLACEHOLDER_IMAGE =
   'https://c.pxhere.com/images/4b/85/2686f1f88d3b2229c9bc0d573439-1588581.jpg!d';
 
@@ -53,7 +59,7 @@ export const formatEventSearchResponse = (
     };
   }
   const responses: Action[] = [];
-  let pageNumber = page;
+  let pageNumber = page + 1;
   if (page === 0) {
     responses.push({
       action_id: uuidv4(),
@@ -63,7 +69,8 @@ export const formatEventSearchResponse = (
       ],
     });
   }
-  if (searchResult?.hits.length < 5) {
+  // Negative page number means no more results
+  if (searchResult?.hits?.length < 5) {
     pageNumber = -1;
   }
   const cards = searchResult?.hits?.map((result): CarouselCardProps => {
@@ -76,7 +83,7 @@ export const formatEventSearchResponse = (
       title: eventTitle || 'No title',
       buttons: [
         {
-          value: `9c52ec9e-65fc-495f-9ce5-cdb57f6f971b "${eventTitle}" ${result.eventId}`,
+          value: `Booking for specific event with name "${eventTitle}" ${result?.eventId}`,
           label: 'Book tickets',
           type: 'postback',
         },
@@ -98,8 +105,29 @@ export const formatEventSearchResponse = (
     output: {
       get_events_code: 200,
       get_events_msg: 'ok',
-      page_number: pageNumber + 1,
+      page_number: pageNumber,
     },
+  };
+};
+
+export const formatNoMoreEventsResponse = (
+  eventType: EventType,
+  area: string
+): GetEventsResponse => {
+  return {
+    output: {
+      get_events_code: 200,
+      get_events_msg: 'No more events',
+    },
+    responses: [
+      {
+        action_id: uuidv4(),
+        type: 'text',
+        texts: [
+          `There are no other ${eventType} available in ${area} for the next month`,
+        ],
+      },
+    ],
   };
 };
 
@@ -115,13 +143,16 @@ export const getEventsError = (
   };
 };
 
-export const formatEventDatesResponse = (dates: string[], lang: Language) => {
-  const dateOptions = dates.map((date) => ({
+export const formatEventDatesResponse = (
+  result: GetEventDatesResult,
+  lang: Language
+) => {
+  const dateOptions = result.dates.map((date) => ({
     text: `1e53a5b1-4164-4149-8145-509baa1a6121 ${date}`,
     label: date,
   }));
   return {
-    output: { get_dates_code: 200, get_dates_msg: 'ok' },
+    output: { get_dates_code: 200, get_dates_msg: 'ok', price: result.price },
     responses: [
       {
         action_id: uuidv4(),
@@ -133,14 +164,26 @@ export const formatEventDatesResponse = (dates: string[], lang: Language) => {
   };
 };
 
-export const getDatesError = (
+export const getEventDatesError = (
   code: number,
   message: string
 ): WebhookResponse => {
   return {
     output: {
-      get_dates_code: code,
-      get_dates_msg: message,
+      get_event_dates_code: code,
+      get_event_dates_msg: message,
+    },
+  };
+};
+
+export const calculateTotalCostError = (
+  code: number,
+  message: string
+): WebhookResponse => {
+  return {
+    output: {
+      calculate_total_cost_code: code,
+      calculate_total_cost_msg: message,
     },
   };
 };

@@ -71,3 +71,10 @@ export type GetEventDates = {
   channel: MoveoChannel;
   brain_id: string;
 };
+
+export type GetEventDatesResult = { dates: string[]; price: number };
+
+export type CalculateTotalCostContext = {
+  tickets_amount: number;
+  price: number;
+};

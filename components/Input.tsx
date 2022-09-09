@@ -1,7 +1,7 @@
 import FormHelperText from '@material-ui/core/FormHelperText';
 import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
-import React, { ChangeEvent } from 'react';
+import { ChangeEvent } from 'react';
 import { Controller } from 'react-hook-form';
 import { errorMessage } from '../util/validator';
 
@@ -15,6 +15,7 @@ const Input = ({
   type,
   upperCase,
   inputMode,
+  maxLength,
 }) => {
   const formatInput = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -53,6 +54,12 @@ const Input = ({
           return (
             <TextField
               onBlur={() => onBlur(name, value)}
+              onInput={(event) => {
+                if (maxLength && type === 'number') {
+                  const e = event.target as HTMLInputElement;
+                  e.value = e.value.toString().slice(0, maxLength);
+                }
+              }}
               id="outlined-error-helper-text"
               label={placeholder}
               variant="outlined"
@@ -63,7 +70,9 @@ const Input = ({
               value={value}
               inputMode={inputMode}
               autoComplete="off"
-              inputProps={type === 'number' ? { pattern: '[0-9]*' } : {}}
+              inputProps={
+                type === 'number' ? { pattern: '[0-9]*' } : { maxLength }
+              }
               onChange={(e) => handleChange(e, onChange)}
             />
           );
@@ -88,6 +97,7 @@ Input.propTypes = {
   autoComplete: PropTypes.string,
   inputMode: PropTypes.string,
   upperCase: PropTypes.bool,
+  maxLength: PropTypes.number,
 };
 
 Input.defaultProps = {

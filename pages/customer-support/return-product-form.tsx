@@ -177,7 +177,7 @@ function ReturnProduct() {
       <ThemeProvider theme={theme}>
         <form
           onSubmit={handleSubmit(handleFormClick)}
-          className="bg-white rounded px-8 pt-6 pb-8 w-full h-full"
+          className="bg-white rounded px-8 pt-6 pb-8 w-full h-full overflow-auto"
         >
           <div className="flex flex-wrap">
             {error && (
@@ -194,6 +194,7 @@ function ReturnProduct() {
                 name="productId"
                 placeholder={placeholders.productId}
                 type="number"
+                maxLength={10}
               />
             </div>
             <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -203,6 +204,7 @@ function ReturnProduct() {
                 name="orderNo"
                 placeholder={placeholders.orderNo}
                 type="number"
+                maxLength={10}
               />
             </div>
             <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -213,6 +215,7 @@ function ReturnProduct() {
                 placeholder={placeholders.firstName}
                 upperCase
                 type="string"
+                maxLength={64}
               />
             </div>
             <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -223,6 +226,7 @@ function ReturnProduct() {
                 placeholder={placeholders.lastName}
                 upperCase
                 type="string"
+                maxLength={64}
               />
             </div>
             <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -241,6 +245,7 @@ function ReturnProduct() {
                 name="city"
                 placeholder={placeholders.city}
                 type="string"
+                maxLength={64}
               />
             </div>
             <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -250,6 +255,7 @@ function ReturnProduct() {
                 name="address"
                 placeholder={placeholders.address}
                 type="text"
+                maxLength={64}
               />
             </div>
             <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -259,6 +265,7 @@ function ReturnProduct() {
                 name="zipCode"
                 placeholder={placeholders.zipCode}
                 type="number"
+                maxLength={5}
               />
             </div>
             <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -268,6 +275,7 @@ function ReturnProduct() {
                 placeholder={placeholders.phoneNumber}
                 name="phoneNumber"
                 type="number"
+                maxLength={10}
               />
             </div>
             <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -277,6 +285,7 @@ function ReturnProduct() {
                 placeholder={placeholders.email}
                 name="email"
                 type="email"
+                maxLength={64}
               />
             </div>
           </div>
@@ -290,7 +299,7 @@ function ReturnProduct() {
               </div>
             </div>
           </div>
-          <div className="px-2 w-full">
+          <div className="px-2 pb-4 w-full">
             <Button type="submit" variant="contained" color="primary">
               Continue
             </Button>

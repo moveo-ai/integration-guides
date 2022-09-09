@@ -6,10 +6,13 @@ import { MethodNotAllowed } from '../../../util/errors';
 import { checkHmacSignature } from '../util/helper';
 import * as API from './util/api';
 import { GetEventDates } from './util/models';
-import { formatEventDatesResponse, getDatesError } from './util/responses';
+import { formatEventDatesResponse, getEventDatesError } from './util/responses';
 
-const PROPERTY_SEARCH_TOKEN = '123456789';
+const GET_EVENT_DATES_TOKEN = '123456789';
 
+/**
+ *  Gets the available dates for an event given the event_id
+ */
 const handler = async (
   req: NextApiRequestWithLog,
   res: NextApiResponse<WebhookResponse>
@@ -18,7 +21,7 @@ const handler = async (
     throw new MethodNotAllowed(req.method);
   }
 
-  checkHmacSignature(req, PROPERTY_SEARCH_TOKEN);
+  checkHmacSignature(req, GET_EVENT_DATES_TOKEN);
 
   const ctx = req?.body?.context as GetEventDates;
   const { event_id, lang, session_id, channel, brain_id } = ctx;
@@ -26,7 +29,7 @@ const handler = async (
   if (!event_id) {
     const message = `Missing required parameter: event_id`;
     req.log.warn(message);
-    return res.json(getDatesError(400, message));
+    return res.json(getEventDatesError(400, message));
   }
 
   const log = req.log.child({ session_id, channel, brain_id, lang });
@@ -43,7 +46,7 @@ const handler = async (
   } catch (error) {
     const message = `Error fetching dates for event: ${event_id}`;
     req.log.error(error, message);
-    res.json(getDatesError(500, message));
+    res.json(getEventDatesError(500, message));
   }
 };
 

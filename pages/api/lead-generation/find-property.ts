@@ -57,7 +57,8 @@ const handler = async (
     req.log.warn(message);
     return res.json(formatError(2, message));
   }
-  //extract search areas
+
+  //Extract search areas
   const areasFilters: Array<string> = [];
   const areasArr: Array<string> = [];
   //When we search for more results
@@ -69,7 +70,7 @@ const handler = async (
     //When we search for a single area
   } else if (area) {
     areasArr.push(`"${area}"`);
-    //When there are multiple entities matched
+    //When there are multiple area entities matched
   } else if (entities && entities.length > 0) {
     entities.map((entity: { entity: string; start: number; end: number }) => {
       if (entity.entity === 'area') {
@@ -85,8 +86,8 @@ const handler = async (
         );
       }
     });
-    //We get here only when there are no entities matched on the msg
   } else {
+    //We get here only when there are no entities matched on the msg
     const message = `No area entity matches`;
     req.log.warn(message);
     return res.json(formatError(5, message));

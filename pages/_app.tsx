@@ -1,7 +1,6 @@
 import { ThemeProvider } from '@material-ui/styles';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import React from 'react';
 import { SWRConfig } from 'swr';
 import '../styles/index.css';
 import theme from '../styles/theme';
@@ -35,6 +34,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </SWRConfig>
       </ThemeProvider>
+      <style jsx global>{`
+        #__next {
+          height: 100%;
+        }
+      `}</style>
     </>
   );
 }
