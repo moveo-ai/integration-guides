@@ -1,7 +1,7 @@
 import { filter } from 'lodash';
 import pino from 'pino';
 import { NotFoundError } from '../../../../util/errors';
-import { events } from './helper';
+import { events } from '../mockdata/events.json';
 import { EventSearchResult, EventType, GetEventDatesResult } from './models';
 
 export const getEvents = async (
