@@ -8,8 +8,11 @@ import {
 import { MAX_CARDS_PER_CAROUSEL } from '../../util/helper';
 import {
   translateDate,
+  translateExchange,
+  translateExchangeValue,
   translatePastPurchases,
   translateReturn,
+  translateReturnValue,
   translateTalkToHuman,
   translateTime,
 } from './helper';
@@ -43,7 +46,7 @@ export function createLastPurchaseCard(
       value = 'Eu quero falar com um agente humano';
     } else {
       subtitle =
-        'If you were unable to find the purchase you were looking for, then you can to talk to a representative';
+        'If you could not find the purchase you were looking for, then you can to talk to a representative';
       label = 'Human Agent';
       value = 'I want to speak to a human agent';
     }
@@ -88,7 +91,8 @@ export function createLastPurchaseCard(
 
 export function purchaseToCard(
   purchase: Purchase,
-  lang: Language
+  lang: Language,
+  isClothes?: boolean
 ): CarouselCardProps {
   const imageURL = purchase.ImageURL;
   const subtitle = purchase.Description;
@@ -104,15 +108,33 @@ export function purchaseToCard(
 
   const buttons: CarouselButton[] = [];
 
-  const label = translateReturn(lang);
+  const labelReturn = translateReturn(lang);
+  const labelExchange = translateExchange(lang);
+  const valueReturn = translateReturnValue(lang);
+  const valueExchange = translateExchangeValue(lang);
 
   const url = purchase.ProductURL;
 
-  buttons.push({
-    type: 'url',
-    label,
-    url,
-  });
+  if (isClothes) {
+    buttons.push(
+      {
+        type: 'postback',
+        label: labelReturn,
+        value: valueReturn + purchase.PurchaseId.toString(),
+      },
+      {
+        type: 'postback',
+        label: labelExchange,
+        value: valueExchange + purchase.PurchaseId.toString(),
+      }
+    );
+  } else {
+    buttons.push({
+      type: 'url',
+      label: labelReturn,
+      url,
+    });
+  }
 
   return {
     media: {
@@ -140,7 +162,8 @@ export function purchaseCardsFromAPI(
   log: pino.Logger,
   purchases: Purchase[],
   langCode: Language,
-  cursor?: string
+  cursor?: string,
+  isClothes?: boolean
 ) {
   // Compare the 2 dates to sort from newest to oldest
   purchases.sort(function (a, b) {
@@ -182,7 +205,7 @@ export function purchaseCardsFromAPI(
       break;
     }
 
-    selected.push(purchaseToCard(purchase, langCode));
+    selected.push(purchaseToCard(purchase, langCode, isClothes));
     newCursor = purchase.Date;
   }
 

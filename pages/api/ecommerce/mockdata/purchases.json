@@ -1,0 +1,126 @@
+{
+  "clothingPurchases": [
+    {
+      "PurchaseId": 10303049,
+      "Price": 100,
+      "Type": "Jeans",
+      "Status": "Completed",
+      "Description": "Men slim jeans",
+      "Date": "2022-04-12T18:22:47.81",
+      "ImageURL": "https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+      "PurchaseId": 10303050,
+      "Price": 120,
+      "Type": "Shoes",
+      "Status": "Completed",
+      "Description": "Nike sneakers",
+      "Date": "2022-04-13T18:22:47.81",
+      "ImageURL": "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+      "PurchaseId": 23930304,
+      "Price": 200,
+      "Type": "Backpack",
+      "Status": "Completed",
+      "Description": "HighKey Backpack",
+      "Date": "2022-03-19T15:22:47.81",
+      "ImageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/HighKey_Backpack.png/723px-HighKey_Backpack.png?20200321020548"
+    },
+    {
+      "PurchaseId": 10303061,
+      "Price": 130,
+      "Type": "Sweater",
+      "Status": "Completed",
+      "Description": "Christmas Sweater",
+      "Date": "2022-04-19T15:22:47.81",
+      "ImageURL": "https://upload.wikimedia.org/wikipedia/commons/7/78/Christmas_Sweater.jpg"
+    },
+    {
+      "PurchaseId": 10303072,
+      "Price": 230,
+      "Type": "Jacket",
+      "Status": "Completed",
+      "Description": "Tracksuit jacket",
+      "Date": "2022-04-20T18:20:41.86",
+      "ImageURL": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Tracksuit_jacket.jpg"
+    },
+    {
+      "PurchaseId": 10303083,
+      "Price": 150,
+      "Type": "Jacket",
+      "Status": "Completed",
+      "Description": "Women Bomber Jacket",
+      "Date": "2022-04-21T18:20:41.86",
+      "ImageURL": "https://upload.wikimedia.org/wikipedia/commons/7/74/Women_Bomber_Jacket_Front.jpg"
+    }
+  ],
+  "techPurchases": [
+    {
+      "PurchaseId": 10303049,
+      "Price": 190,
+      "Type": "Keyboard",
+      "ProductURL": "https://www.skroutz.gr/s/24785578/Logitech-G915-TKL-Ασύρματο-Gaming-Μηχανικό-Πληκτρολόγιο-Tenkeyless-με-GL-Tactile-διακόπτες-και-RGB-φωτισμό-Αγγλικό-US-Λευκό.html",
+      "ReturnURL": "https://www.skroutz.gr/ecommerce/return_policy",
+      "Status": "Completed",
+      "Description": "Logitech Wireless Keyboard",
+      "Date": "2022-04-12T18:22:47.81",
+      "ImageURL": "https://a.scdn.gr/images/sku_main_images/032009/32009883/xlarge_20211110153952_mediarange_mros132_gr_asyrmato_bluetooth_pliktrologio_elliniko_asimi.jpeg"
+    },
+    {
+      "PurchaseId": 10303049,
+      "Price": 190,
+      "Type": "Mouse",
+      "ProductURL": "https://www.skroutz.gr/s/23123626/Xiaomi-Mi-Dual-Mode-Ασύρματο-Bluetooth-Mini-Ποντίκι-Μαύρο.html?from=best_sellers_tag",
+      "ReturnURL": "https://www.skroutz.gr/ecommerce/return_policy",
+      "Status": "Completed",
+      "Description": "Xiaomi Mi Dual Mode Mouse",
+      "Date": "2022-04-13T18:22:47.81",
+      "ImageURL": "https://b.scdn.gr/images/sku_main_images/023123/23123626/xlarge_20211215131712_xiaomi_mi_dual_mode_asyrmato_bluetooth_mini_pontiki_mayro.jpeg"
+    },
+    {
+      "PurchaseId": 23930304,
+      "Price": 3000,
+      "Type": "Laptop",
+      "ProductURL": "https://www.skroutz.gr/s/25634434/Apple-MacBook-Air-13-3-2020-M1-8GB-256GB-SSD-Retina-Display-Space-Gray-GR-Keyboard.html",
+      "ReturnURL": "https://www.skroutz.gr/ecommerce/return_policy",
+      "Status": "Completed",
+      "Description": "Apple MacBook Air 13.3",
+      "Date": "2022-03-19T15:22:47.81",
+      "ImageURL": "https://c.scdn.gr/images/sku_main_images/025634/25634434/xlarge_20201113094413_apple_macbook_air_13_3_m1_8gb_256gb_retina_display_macos_big_sur_2020_space_gray.jpeg"
+    },
+    {
+      "PurchaseId": 10303049,
+      "Price": 80,
+      "Type": "Keyboard",
+      "ProductURL": "https://www.skroutz.gr/s/19953854/Zeroground-KB-2800G-Satomi-Gaming-Μηχανικό-Πληκτρολόγιο-με-Outemu-Red-διακόπτες-και-RGB-φωτισμό-Αγγλικό-US.html",
+      "ReturnURL": "https://www.skroutz.gr/ecommerce/return_policy",
+      "Status": "Completed",
+      "Description": "Satomi Gaming Keyboard",
+      "Date": "2022-04-19T15:22:47.81",
+      "ImageURL": "https://a.scdn.gr/images/sku_main_images/019953/19953854/xlarge_20200304152526_zeroground_kb_2800g_satomi.jpeg"
+    },
+    {
+      "PurchaseId": 10303049,
+      "Price": 400,
+      "Type": "TV",
+      "ProductURL": "https://www.skroutz.gr/s/27732284/Samsung-Smart-Τηλεόραση-LED-4K-UHD-UE50AU7172-HDR-50.html?from=best_sellers_tag",
+      "ReturnURL": "https://www.skroutz.gr/ecommerce/return_policy",
+      "Status": "Completed",
+      "Description": "Samsung Smart TV",
+      "Date": "2022-04-20T18:20:41.86",
+      "ImageURL": "https://b.scdn.gr/images/sku_main_images/027732/27732284/xlarge_20211123151309_samsung_smart_tileorasi_led_4k_uhd_ue50au7172_hdr_50.jpeg"
+    },
+    {
+      "PurchaseId": 10303049,
+      "Price": 400,
+      "Type": "XBOX",
+      "ProductURL": "https://www.skroutz.gr/s/24662008/Microsoft-Xbox-Series-S.html?from=best_sellers_tag",
+      "ReturnURL": "https://www.skroutz.gr/ecommerce/return_policy",
+      "Status": "Completed",
+      "Description": "Xbox Series S",
+      "Date": "2022-04-21T18:20:41.86",
+      "ImageURL": "https://b.scdn.gr/images/sku_main_images/020592/20592739/xlarge_20191018102824_microsoft_xbox_one_x_1tb_star_wars_jedi_fallen_order.jpeg"
+    }
+  ]
+}
