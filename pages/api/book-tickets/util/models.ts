@@ -10,7 +10,7 @@ export type EventType =
   | 'Theatrical performances'
   | 'Musical shows'
   | 'Dance performances'
-  | 'Kids movies'
+  | 'Cartoons'
   | 'Movies';
 
 export interface SearchParams {
