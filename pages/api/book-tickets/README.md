@@ -29,11 +29,11 @@ It returns a **carousel** with available events for a _category_ and _area_.
 
 ### Parameters (context variables)
 
-| Name             | Required | Type   | Description                                                                                                                                                                |
-| ---------------- | -------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event_type_value | required | string | The type of the events. <br /> <br /> Supported values: `Concerts`, `Festivals`, `Theatrical performances`, `Musical shows`, `Dance performances`, `Kids movies`, `Movies` |
-| area             | required | string | The area where the events will be held. <br /> <br /> Supported values: `Athens`, `Thessaloniki`                                                                           |
-| page_number      | optional | number | An integer that is used for pagination. Negative value indicates the end of the results.                                                                                   |
+| Name             | Required | Type   | Description                                                                                                                                                             |
+| ---------------- | -------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| event_type_value | required | string | The type of the events. <br /> <br /> Supported values: `Concerts`, `Festivals`, `Theatrical performances`, `Musical shows`, `Dance performances`, `Cartoons`, `Movies` |
+| area             | required | string | The area where the events will be held. <br /> <br /> Supported values: `Athens`, `Thessaloniki`                                                                        |
+| page_number      | optional | number | An integer that is used for pagination. Negative value indicates the end of the results.                                                                                |
 
 ### Responses
 
