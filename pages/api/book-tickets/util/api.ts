@@ -23,7 +23,12 @@ export const getEvents = async (
     'X-Request-Id': request_id,
   };
 
-  const HITS = filter(events, (e) => e.type === event_type && e.area === area);
+  const HITS = filter(
+    events,
+    (e) =>
+      e.type.toLowerCase() === event_type.toLowerCase() &&
+      e.area.toLowerCase() === area.toLowerCase()
+  );
 
   logger.info(
     { ...headers },

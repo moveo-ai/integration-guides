@@ -122,3 +122,13 @@ export const paymentFormSchema = yup.object().shape({
   cvv: yup.string().max(64).required().matches(cvvPatern),
   cardHolder: yup.string().max(LENGTH_S).required().matches(namePattern),
 });
+
+export const listPropertySchema = yup.object().shape({
+  name: yup.string().max(64).required().matches(namePattern),
+  offeringType: yup.string().max(LENGTH_S).required(),
+  propertyType: yup.string().max(LENGTH_S).required(),
+  location: yup.string().max(LENGTH_S).required(),
+  size: yup.string().max(LENGTH_S).required(),
+  price: yup.string().max(LENGTH_S).required(),
+  email: yup.string().max(LENGTH_S).required().matches(emailPattern),
+});
