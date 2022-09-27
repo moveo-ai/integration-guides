@@ -49,7 +49,7 @@ type FormInputs = {
   propertyType: string;
   location: string;
   size: number;
-  price: number;
+  price: string;
   email: string;
 };
 
@@ -101,12 +101,12 @@ function ListProperty() {
     resolver: yupResolver(listPropertySchema),
     reValidateMode: 'onChange',
     defaultValues: {
-      name: 'John Doe',
+      name: 'JOHN DOE',
       offeringType: 'sell',
       propertyType: 'residential',
-      location: 'EXAMPLE STR 42, 50500 ATHENS',
+      location: 'EXAMPLE STR 42, 50500 NEW YORK',
       size: 100,
-      price: 100000,
+      price: '100.000',
       email: 'example@mail.com',
     },
   });
@@ -228,6 +228,7 @@ function ListProperty() {
                 placeholder={placeholders.location}
                 type="string"
                 maxLength={64}
+                upperCase
               />
             </div>
             <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -237,6 +238,7 @@ function ListProperty() {
                 name="size"
                 placeholder={placeholders.size}
                 type="number"
+                isCurrency
                 maxLength={5}
               />
             </div>
@@ -246,7 +248,9 @@ function ListProperty() {
                 errors={errors.price}
                 name="price"
                 placeholder={placeholders.price}
+                isCurrency
                 type="number"
+                maxLength={7}
               />
             </div>
             <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">

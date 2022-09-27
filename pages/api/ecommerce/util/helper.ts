@@ -97,13 +97,13 @@ export function translateTime(lang: Language) {
 export function translateReturn(lang: Language) {
   switch (lang) {
     case 'el':
-      return 'Επιστροφή';
+      return 'Επιστροφή χρημάτων';
     case 'en':
-      return 'Return';
+      return 'Refund';
     case 'ro':
-      return 'Returneaza';
+      return 'Bani returnati';
     case 'pt-br':
-      return 'Devolver';
+      return 'Devolução de dinheiro';
     default:
       return 'Return';
   }

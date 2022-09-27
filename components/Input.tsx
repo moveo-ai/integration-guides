@@ -16,14 +16,21 @@ const Input = ({
   upperCase,
   inputMode,
   maxLength,
+  isCurrency,
 }) => {
   const formatInput = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const newValue = e.target.value
-      .toUpperCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '');
+    let newValue: string;
+    if (isCurrency) {
+      newValue = e.target.value.toString().split('.').join('');
+      newValue = newValue.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    } else {
+      newValue = e.target.value
+        .toUpperCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
+    }
     const newEvent = {
       ...e,
       target: {
@@ -37,8 +44,7 @@ const Input = ({
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     onChange
   ) => {
-    onChange(formatInput(e));
-    if (upperCase) {
+    if (upperCase || isCurrency) {
       onChange(formatInput(e));
     } else {
       onChange(e);
@@ -55,7 +61,7 @@ const Input = ({
             <TextField
               onBlur={() => onBlur(name, value)}
               onInput={(event) => {
-                if (maxLength && type === 'number') {
+                if (maxLength && (type === 'number' || isCurrency)) {
                   const e = event.target as HTMLInputElement;
                   e.value = e.value.toString().slice(0, maxLength);
                 }
@@ -71,7 +77,9 @@ const Input = ({
               inputMode={inputMode}
               autoComplete="off"
               inputProps={
-                type === 'number' ? { pattern: '[0-9]*' } : { maxLength }
+                type === 'number' || isCurrency
+                  ? { pattern: '[0-9,.]*' }
+                  : { maxLength }
               }
               onChange={(e) => handleChange(e, onChange)}
             />
@@ -98,6 +106,7 @@ Input.propTypes = {
   inputMode: PropTypes.string,
   upperCase: PropTypes.bool,
   maxLength: PropTypes.number,
+  isCurrency: PropTypes.bool,
 };
 
 Input.defaultProps = {
