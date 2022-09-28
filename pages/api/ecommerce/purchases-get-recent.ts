@@ -91,7 +91,7 @@ const handler = async (
       });
     }
     return res.json(successResponse(cards, newCursor));
-  } catch (error: any) {
+  } catch (error) {
     if (!error.response) {
       throw AppError.fromError(log, error);
     }
