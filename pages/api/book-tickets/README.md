@@ -13,7 +13,7 @@ For general information about using webhooks in Moveo you can check our [documen
 This is a POST endpoint that you can call like this:
 
 ```sh
-curl -X POST -H "Content-Type: application/json" -H "X-Signature: <YOUR_SIGNATURE>" -d '{ "lang": "en", "context": {"event_type_value": "Movies", "area": "Athens"}}' "https://integration-guides.moveo.ai/api/book-tickets/get-events"
+curl -X POST -H "Content-Type: application/json" -H "X-Signature: <YOUR_SIGNATURE>" -d '{ "lang": "en", "context": {"event_type_value": "Movies", "area": "New York"}}' "https://integration-guides.moveo.ai/api/book-tickets/get-events"
 ```
 
 It returns a **carousel** with available events for a _category_ and _area_.
@@ -32,7 +32,7 @@ It returns a **carousel** with available events for a _category_ and _area_.
 | Name             | Required | Type   | Description                                                                                                                                                             |
 | ---------------- | -------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | event_type_value | required | string | The type of the events. <br /> <br /> Supported values: `Concerts`, `Festivals`, `Theatrical performances`, `Musical shows`, `Dance performances`, `Cartoons`, `Movies` |
-| area             | required | string | The area where the events will be held. <br /> <br /> Supported values: `Athens`, `Thessaloniki`                                                                        |
+| area             | required | string | The area where the events will be held. <br /> <br /> Supported values: `New York`, `London`                                                                            |
 | page_number      | optional | number | An integer that is used for pagination. Negative value indicates the end of the results.                                                                                |
 
 ### Responses

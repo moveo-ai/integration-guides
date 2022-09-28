@@ -91,6 +91,8 @@ const expDatePatern = /^(0[1-9]|1[0-2])\/?([0-9]{2})$/;
 const emailPattern =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+const pricePattern = /^[0-9,.]*$/;
+
 export const demoSchema = yup.object().shape({
   firstName: yup.string().max(64).required().matches(namePattern),
   lastName: yup.string().max(64).required().matches(namePattern),
@@ -121,4 +123,14 @@ export const paymentFormSchema = yup.object().shape({
   expDate: yup.string().required().length(5).matches(expDatePatern),
   cvv: yup.string().max(64).required().matches(cvvPatern),
   cardHolder: yup.string().max(LENGTH_S).required().matches(namePattern),
+});
+
+export const listPropertySchema = yup.object().shape({
+  name: yup.string().max(64).required().matches(namePattern),
+  offeringType: yup.string().max(LENGTH_S).required(),
+  propertyType: yup.string().max(LENGTH_S).required(),
+  location: yup.string().max(LENGTH_S).required(),
+  size: yup.string().max(LENGTH_S).required().matches(pricePattern),
+  price: yup.string().max(LENGTH_S).required().matches(pricePattern),
+  email: yup.string().max(LENGTH_S).required().matches(emailPattern),
 });

@@ -5,7 +5,7 @@ import {
   PropertySearchResult,
   SearchResponse,
 } from './models';
-const PLACEHOLDER_IMAGE =
+export const PLACEHOLDER_IMAGE =
   'https://media.istockphoto.com/vectors/house-flat-icon-vector-illustration-vector-id1072185464?k=20&m=1072185464&s=612x612&w=0&h=CM_SfnMMl-jJ8AFHBa4b_V2LThEt4JIcPQfzUb9rMLM=';
 
 export const formatResponse = (

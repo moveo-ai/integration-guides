@@ -4,18 +4,7 @@ import {
   WebhookResponse,
 } from '../../../../types/moveo';
 
-export type PropertyType =
-  | 'apartment'
-  | 'detached'
-  | 'floor'
-  | 'hotel'
-  | 'industrial'
-  | 'maisonette'
-  | 'offices'
-  | 'villa'
-  | 'block-of-flats'
-  | 'retail-leisure'
-  | 'land-plot';
+export type PropertyType = 'residential' | 'commercial' | 'land-plot';
 
 export interface SearchParams {
   filters: {

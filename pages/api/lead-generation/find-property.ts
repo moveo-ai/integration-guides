@@ -71,7 +71,11 @@ const handler = async (
   } else if (area) {
     areasArr.push(`"${area}"`);
     //When there are multiple area entities matched
-  } else if (entities && entities.length > 0) {
+  } else if (
+    entities &&
+    entities.length > 0 &&
+    entities.find((entity) => entity.entity === 'area')
+  ) {
     entities.map((entity: { entity: string; start: number; end: number }) => {
       if (entity.entity === 'area') {
         if (!message) {
@@ -110,7 +114,7 @@ const handler = async (
   } else if (offering_type_value === 'rent') {
     offeringType = 'letting';
   } else {
-    const message = `Found offering type ${offering_type_value} but expected one of 'selling', 'letting'`;
+    const message = `Found offering type ${offering_type_value} but expected one of 'buy', 'rent'`;
     req.log.warn(message);
     return res.json(formatError(3, message));
   }

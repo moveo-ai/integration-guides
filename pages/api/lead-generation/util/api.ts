@@ -2,6 +2,7 @@ import { capitalize } from 'lodash';
 import pino from 'pino';
 import { propertiesPerType, random } from './helper';
 import { PropertySearchResult, SearchParams, SearchResponse } from './models';
+import { PLACEHOLDER_IMAGE } from './responses';
 
 export const getProperties = async (
   logger: pino.Logger,
@@ -38,8 +39,8 @@ export const getProperties = async (
     const finalPrice = random(basePrice * 0.9, maxPrice);
     const hitSize = random(size, size * 1.4);
     HITS.push({
-      featuredImage: properties?.images[i],
-      title: `${capitalize(property_type)} in ${
+      featuredImage: PLACEHOLDER_IMAGE,
+      title: `${capitalize(property_type)} property in ${
         areas[random(0, areas.length)] ?? areas[0]
       } ${hitSize}`,
       price: finalPrice,

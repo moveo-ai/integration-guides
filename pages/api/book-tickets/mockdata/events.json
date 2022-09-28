@@ -3,7 +3,7 @@
     {
       "eventId": 1156777192,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Concerts",
       "price": 40,
       "title": "Pop concert",
@@ -12,7 +12,7 @@
     {
       "eventId": 5359597028,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Concerts",
       "price": 50,
       "title": "Classical concert",
@@ -21,7 +21,7 @@
     {
       "eventId": 8192688097,
       "imageUrl": "",
-      "area": "Thessaloniki",
+      "area": "London",
       "type": "Concerts",
       "price": 50,
       "title": "Blues & Jazz concert",
@@ -30,7 +30,7 @@
     {
       "eventId": 2926400295,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Concerts",
       "price": 60,
       "title": "Rock concert",
@@ -39,7 +39,7 @@
     {
       "eventId": 7275315503,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Concerts",
       "price": 45,
       "title": "Electronic concert",
@@ -48,7 +48,7 @@
     {
       "eventId": 1021223898,
       "imageUrl": "",
-      "area": "Thessaloniki",
+      "area": "London",
       "type": "Concerts",
       "price": 50,
       "title": "Accoustic concert",
@@ -57,7 +57,7 @@
     {
       "eventId": 5020216125,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Festivals",
       "price": 120,
       "title": "Dj/Dance festival",
@@ -66,7 +66,7 @@
     {
       "eventId": 3780135427,
       "imageUrl": "",
-      "area": "Thessaloniki",
+      "area": "London",
       "type": "Festivals",
       "price": 100,
       "title": "Hip Hop/Rap festival",
@@ -75,7 +75,7 @@
     {
       "eventId": 2472081431,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Theatrical performances",
       "price": 15,
       "title": "Theatrical performance",
@@ -84,7 +84,7 @@
     {
       "eventId": 5720563665,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Theatrical performances",
       "price": 25,
       "title": "Theatrical performance",
@@ -93,7 +93,7 @@
     {
       "eventId": 1961573367,
       "imageUrl": "",
-      "area": "Thessaloniki",
+      "area": "London",
       "type": "Theatrical performances",
       "price": 10,
       "title": "Theatrical performance",
@@ -102,7 +102,7 @@
     {
       "eventId": 1432089195,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Theatrical performances",
       "price": 20,
       "title": "Theatrical performance",
@@ -111,7 +111,7 @@
     {
       "eventId": 6416205503,
       "imageUrl": "",
-      "area": "Thessaloniki",
+      "area": "London",
       "type": "Theatrical performances",
       "price": 15,
       "title": "Theatrical performance",
@@ -120,7 +120,7 @@
     {
       "eventId": 9016609257,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Musical shows",
       "price": 10,
       "title": "Musical",
@@ -129,7 +129,7 @@
     {
       "eventId": 1949622723,
       "imageUrl": "",
-      "area": "Thessaloniki",
+      "area": "London",
       "type": "Musical shows",
       "price": 15,
       "title": "Musical",
@@ -138,7 +138,7 @@
     {
       "eventId": 1965215639,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Dance performances",
       "price": 35,
       "title": "Dance performance",
@@ -147,7 +147,7 @@
     {
       "eventId": 5101700643,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Dance performances",
       "price": 25,
       "title": "Dance performance",
@@ -156,7 +156,7 @@
     {
       "eventId": 8762032072,
       "imageUrl": "",
-      "area": "Thessaloniki",
+      "area": "London",
       "type": "Dance performances",
       "price": 30,
       "title": "Dance performance",
@@ -165,7 +165,7 @@
     {
       "eventId": 4373459554,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Cartoons",
       "price": 5,
       "title": "Cartoon",
@@ -174,7 +174,7 @@
     {
       "eventId": 5218933104,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Cartoons",
       "price": 5,
       "title": "Cartoon",
@@ -183,7 +183,7 @@
     {
       "eventId": 3844730324,
       "imageUrl": "",
-      "area": "Thessaloniki",
+      "area": "London",
       "type": "Cartoons",
       "price": 5,
       "title": "Cartoon",
@@ -192,7 +192,7 @@
     {
       "eventId": 9947042135,
       "imageUrl": "",
-      "area": "Thessaloniki",
+      "area": "London",
       "type": "Cartoons",
       "price": 6,
       "title": "Cartoon",
@@ -201,7 +201,7 @@
     {
       "eventId": 4177324785,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Cartoons",
       "price": 6,
       "title": "Cartoon",
@@ -210,7 +210,7 @@
     {
       "eventId": 4160250703,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Movies",
       "price": 6,
       "title": "Action Movie",
@@ -219,7 +219,7 @@
     {
       "eventId": 4745421207,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Movies",
       "price": 5,
       "title": "Horror Movie",
@@ -228,7 +228,7 @@
     {
       "eventId": 9936209867,
       "imageUrl": "",
-      "area": "Thessaloniki",
+      "area": "London",
       "type": "Movies",
       "price": 6,
       "title": "Horror Movie",
@@ -237,7 +237,7 @@
     {
       "eventId": 2948856765,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Movies",
       "price": 6,
       "title": "Comedy Movie",
@@ -246,7 +246,7 @@
     {
       "eventId": 3566592911,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Movies",
       "price": 7,
       "title": "Romance Movie",
@@ -255,7 +255,7 @@
     {
       "eventId": 4966443011,
       "imageUrl": "",
-      "area": "Thessaloniki",
+      "area": "London",
       "type": "Movies",
       "price": 6,
       "title": "Comedy Movie",
@@ -264,7 +264,7 @@
     {
       "eventId": 2227182223,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Movies",
       "price": 6,
       "title": "Mystery Movie",
@@ -273,7 +273,7 @@
     {
       "eventId": 8492747438,
       "imageUrl": "",
-      "area": "Athens",
+      "area": "New York",
       "type": "Movies",
       "price": 5,
       "title": "Animation Movie",
@@ -282,7 +282,7 @@
     {
       "eventId": 5878857406,
       "imageUrl": "",
-      "area": "Thessaloniki",
+      "area": "London",
       "type": "Movies",
       "price": 7,
       "title": "Animation Movie",
