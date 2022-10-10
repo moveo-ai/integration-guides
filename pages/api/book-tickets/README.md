@@ -1,4 +1,4 @@
-# Webhooks used in **Book tickets** brain template
+# Webhooks used in **`Book tickets`** brain template
 
 For general information about using webhooks in Moveo you can check our [documentation](https://docs.moveo.ai/docs/get_started/webhooks)
 
