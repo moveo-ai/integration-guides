@@ -8,10 +8,6 @@ interface FacebookPageContext {
 }
 
 interface Window {
-  google: {
-    maps: any;
-  };
-
   /**
    * Facebook Messenger extensions.
    * Documentation: https://developers.facebook.com/docs/messenger-platform/webview/extensions/

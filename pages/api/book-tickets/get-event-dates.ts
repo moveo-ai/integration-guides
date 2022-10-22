@@ -42,7 +42,7 @@ const handler = async (
       req.id,
       req.moveo_id
     );
-    res.json(formatEventDatesResponse(resp, lang) as WebhookResponse);
+    res.json(formatEventDatesResponse(resp) as WebhookResponse);
   } catch (error) {
     const message = `Error fetching dates for event: ${event_id}`;
     req.log.error(error, message);

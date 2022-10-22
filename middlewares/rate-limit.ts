@@ -11,7 +11,7 @@ interface Props {
 const rateLimit = (options: Props) => {
   const tokenCache = new LRU({
     max: options.uniqueTokenPerInterval || 500,
-    maxAge: options.interval || 90000,
+    ttl: options.interval || 90000,
   });
 
   return {

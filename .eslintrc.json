@@ -18,6 +18,8 @@
     "react/react-in-jsx-scope": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "no-console": "error"
+    "react/no-unknown-property": [2, { "ignore": ["jsx", "global"] }],
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-console": "warn"
   }
 }
