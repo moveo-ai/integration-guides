@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { Action, CarouselCardProps, Language } from '../../../../types/moveo';
+import { Action, CarouselCardProps } from '../../../../types/moveo';
 import {
   PropertySearchResponse,
   PropertySearchResult,
@@ -11,8 +11,7 @@ export const PLACEHOLDER_IMAGE =
 export const formatResponse = (
   searchResults: SearchResponse<PropertySearchResult>,
   page: number,
-  areas: string[],
-  lang: Language
+  areas: string[]
 ): PropertySearchResponse => {
   // No results
   if (searchResults?.hits?.length === 0) {

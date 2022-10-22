@@ -15,7 +15,7 @@ const errorHandlerMiddleware =
       client_ip: req?.headers['x-real-ip'],
       deployment_url: req?.headers['x-vercel-deployment-url'],
       host: req?.headers['host'],
-      url: req?.url,
+      url: req?.url?.split('?')[0],
     });
     // Add logging and request id to the main request
     req.moveo_id = params.moveo_request_id;

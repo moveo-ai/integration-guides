@@ -1,8 +1,9 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { ThemeProvider } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
+import { ThemeProvider } from '@mui/material';
+import { StyledEngineProvider } from '@mui/material/styles';
+
+import Button from '@mui/material/Button';
 import Head from 'next/head';
-import Script from 'next/script';
 import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Alert from '../../components/Alert';
@@ -155,140 +156,128 @@ function ListProperty() {
   }
   return (
     <>
-      {/* Global Site Tag (gtag.js) - Google Analytics */}
-      <Script
-        strategy="lazyOnload"
-        src="https://www.googletagmanager.com/gtag/js?id=UA-207029739-1"
-      />
-
-      <Script id="google-tag-manager-script" strategy="lazyOnload">
-        {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-207029739-1', {
-              page_path: window.location.pathname,
-            });
-          `}
-      </Script>
-
       <Head>
         <meta
           httpEquiv="Content-Security-Policy"
           content="upgrade-insecure-requests"
         />
       </Head>
-      <ThemeProvider theme={theme}>
-        <form
-          onSubmit={handleSubmit(handleFormClick)}
-          className="bg-white rounded px-8 pt-6 pb-8 w-full h-full overflow-auto"
-        >
-          <div className="flex flex-wrap">
-            {error && (
-              <div className="mb-4 px-2 w-full">
-                <Alert message={error?.message} onClose={handleOnCloseError} />
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <form
+            onSubmit={handleSubmit(handleFormClick)}
+            className="bg-white rounded px-8 pt-6 pb-8 w-full h-full overflow-auto"
+          >
+            <div className="flex flex-wrap">
+              {error && (
+                <div className="mb-4 px-2 w-full">
+                  <Alert
+                    message={error?.message}
+                    onClose={handleOnCloseError}
+                  />
+                </div>
+              )}
+            </div>
+            <div className="flex flex-wrap">
+              <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
+                <Input
+                  control={control}
+                  errors={errors.name}
+                  name="name"
+                  placeholder={placeholders.name}
+                  upperCase
+                  type="string"
+                  maxLength={64}
+                />
               </div>
-            )}
-          </div>
-          <div className="flex flex-wrap">
-            <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
-              <Input
-                control={control}
-                errors={errors.name}
-                name="name"
-                placeholder={placeholders.name}
-                upperCase
-                type="string"
-                maxLength={64}
-              />
-            </div>
-            <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
-              <Select
-                control={control}
-                errors={errors.offeringType}
-                options={offeringType}
-                name="offeringType"
-                placeholder={placeholders.offeringType}
-              />
-            </div>
-            <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
-              <Select
-                control={control}
-                errors={errors.propertyType}
-                options={propertyType}
-                name="propertyType"
-                placeholder={placeholders.propertyType}
-              />
-            </div>
-            <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
-              <Input
-                control={control}
-                errors={errors.location}
-                name="location"
-                placeholder={placeholders.location}
-                type="string"
-                maxLength={64}
-                upperCase
-              />
-            </div>
-            <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
-              <Input
-                control={control}
-                errors={errors.size}
-                name="size"
-                placeholder={placeholders.size}
-                type="number"
-                isCurrency
-                maxLength={5}
-              />
-            </div>
-            <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
-              <Input
-                control={control}
-                errors={errors.price}
-                name="price"
-                placeholder={placeholders.price}
-                isCurrency
-                type="number"
-                maxLength={7}
-              />
-            </div>
-            <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
-              <Input
-                control={control}
-                errors={errors.email}
-                placeholder={placeholders.email}
-                name="email"
-                type="email"
-                maxLength={64}
-              />
-            </div>
-          </div>
-          <div className="flex flex-wrap">
-            <div className="flex flex-wrap pb-12">
-              <div className="px-2 w-full h-20">
-                <span className="disclaimer-text">
-                  The personal data that you insert will be stored and used by
-                  the company only when you submit this Form.
-                </span>
+              <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
+                <Select
+                  control={control}
+                  errors={errors.offeringType}
+                  options={offeringType}
+                  name="offeringType"
+                  placeholder={placeholders.offeringType}
+                />
+              </div>
+              <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
+                <Select
+                  control={control}
+                  errors={errors.propertyType}
+                  options={propertyType}
+                  name="propertyType"
+                  placeholder={placeholders.propertyType}
+                />
+              </div>
+              <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
+                <Input
+                  control={control}
+                  errors={errors.location}
+                  name="location"
+                  placeholder={placeholders.location}
+                  type="string"
+                  maxLength={64}
+                  upperCase
+                />
+              </div>
+              <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
+                <Input
+                  control={control}
+                  errors={errors.size}
+                  name="size"
+                  placeholder={placeholders.size}
+                  type="number"
+                  isCurrency
+                  maxLength={5}
+                />
+              </div>
+              <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
+                <Input
+                  control={control}
+                  errors={errors.price}
+                  name="price"
+                  placeholder={placeholders.price}
+                  isCurrency
+                  type="number"
+                  maxLength={7}
+                />
+              </div>
+              <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
+                <Input
+                  control={control}
+                  errors={errors.email}
+                  placeholder={placeholders.email}
+                  name="email"
+                  type="email"
+                  maxLength={64}
+                />
               </div>
             </div>
-          </div>
-          <div className="px-2 pb-4 w-full">
-            <Button type="submit" variant="contained" color="primary">
-              Continue
-            </Button>
-          </div>
-        </form>
-        {open && (
-          <ConfirmationBox
-            data={confirmationData}
-            handleClose={handleClose}
-            open={open}
-            handleSubmitData={handleSubmitData}
-          />
-        )}
-      </ThemeProvider>
+            <div className="flex flex-wrap">
+              <div className="flex flex-wrap pb-12">
+                <div className="px-2 w-full h-20">
+                  <span className="disclaimer-text">
+                    The personal data that you insert will be stored and used by
+                    the company only when you submit this Form.
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="px-2 pb-4 w-full">
+              <Button type="submit" variant="contained" color="primary">
+                Continue
+              </Button>
+            </div>
+          </form>
+          {open && (
+            <ConfirmationBox
+              data={confirmationData}
+              handleClose={handleClose}
+              open={open}
+              handleSubmitData={handleSubmitData}
+            />
+          )}
+        </ThemeProvider>
+      </StyledEngineProvider>
     </>
   );
 }

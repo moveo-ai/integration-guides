@@ -139,7 +139,7 @@ const handler = async (
       req.id,
       req.moveo_id
     );
-    res.json(formatResponse(resp, page, areasArr, lang));
+    res.json(formatResponse(resp, page, areasArr));
   } catch (error) {
     const message = 'Error fetching properties';
     req.log.error(error, message);

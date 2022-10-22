@@ -1,10 +1,13 @@
-import { ThemeProvider } from '@material-ui/styles';
+import { StyledEngineProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/styles';
+
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { SWRConfig } from 'swr';
-import '../styles/index.css';
 import theme from '../styles/theme';
 import { fetcher } from '../util/fetcher';
+
+import '../styles/index.css';
 
 export async function getInitialProps({ Component, ctx }) {
   let pageProps = {};
@@ -29,11 +32,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="msapplication-TileColor" content="#2b5797" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <ThemeProvider theme={theme}>
-        <SWRConfig value={{ fetcher }}>
-          <Component {...pageProps} />
-        </SWRConfig>
-      </ThemeProvider>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <SWRConfig value={{ fetcher }}>
+            <Component {...pageProps} />
+          </SWRConfig>
+        </ThemeProvider>
+      </StyledEngineProvider>
       <style jsx global>{`
         #__next {
           height: 100%;

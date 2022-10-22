@@ -2,7 +2,6 @@ import { v4 as uuidv4 } from 'uuid';
 import {
   Action,
   CarouselCardProps,
-  Language,
   WebhookResponse,
 } from '../../../../types/moveo';
 import {
@@ -37,8 +36,7 @@ export const formatEventSearchResponse = (
   searchResult: EventSearchResult,
   eventType: EventType,
   area: string,
-  page: number,
-  lang: Language
+  page: number
 ): GetEventsResponse => {
   // No results
   if (searchResult?.nbHits === 0) {
@@ -142,10 +140,7 @@ export const getEventsError = (
   };
 };
 
-export const formatEventDatesResponse = (
-  result: GetEventDatesResult,
-  lang: Language
-) => {
+export const formatEventDatesResponse = (result: GetEventDatesResult) => {
   const dateOptions = result.dates.map((date) => ({
     text: `1e53a5b1-4164-4149-8145-509baa1a6121 ${date}`,
     label: date,

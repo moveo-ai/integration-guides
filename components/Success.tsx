@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import PropTypes from 'prop-types';
-import React from 'react';
 
 const Success = ({ label }) => {
   return (

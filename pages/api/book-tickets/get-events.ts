@@ -72,7 +72,7 @@ const handler = async (
       req.moveo_id
     );
     // Return a carousel using the data
-    res.json(formatEventSearchResponse(resp, event_type, area, page, lang));
+    res.json(formatEventSearchResponse(resp, event_type, area, page));
   } catch (error) {
     const message = `Error fetching events with type: ${event_type} and area: ${area}`;
     req.log.error(error, message);

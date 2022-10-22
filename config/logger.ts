@@ -13,7 +13,6 @@ export const logger = pino(
     base: null,
     level: isProd ? 'info' : 'debug',
     timestamp: true,
-    prettyPrint: !isProd,
   },
   process.stdout
 );

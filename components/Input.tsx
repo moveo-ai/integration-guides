@@ -1,5 +1,5 @@
-import FormHelperText from '@material-ui/core/FormHelperText';
-import TextField from '@material-ui/core/TextField';
+import FormHelperText from '@mui/material/FormHelperText';
+import TextField from '@mui/material/TextField';
 import PropTypes from 'prop-types';
 import { ChangeEvent } from 'react';
 import { Controller } from 'react-hook-form';

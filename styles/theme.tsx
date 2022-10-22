@@ -1,4 +1,4 @@
-import { createTheme } from '@material-ui/core/styles';
+import { createTheme } from '@mui/material';
 
 const theme = createTheme({
   palette: {
@@ -15,28 +15,36 @@ const theme = createTheme({
       secondary: '#8499a8',
     },
   },
-  overrides: {
+  components: {
     MuiSelect: {
-      icon: {
-        marginRight: '20px',
+      styleOverrides: {
+        icon: {
+          marginRight: '20px',
+        },
       },
     },
     MuiFormHelperText: {
-      root: {
-        marginLeft: '14px',
-        color: 'var(--color-black)',
+      styleOverrides: {
+        root: {
+          marginLeft: '14px',
+          color: 'var(--color-black)',
+        },
       },
     },
     MuiDialogTitle: {
-      root: {
-        display: 'flex',
-        justifyContent: 'space-between',
+      styleOverrides: {
+        root: {
+          display: 'flex',
+          justifyContent: 'space-between',
+        },
       },
     },
     MuiListItem: {
-      gutters: {
-        paddingLeft: '0',
-        paddingRight: '0',
+      styleOverrides: {
+        gutters: {
+          paddingLeft: '0',
+          paddingRight: '0',
+        },
       },
     },
   },

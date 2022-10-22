@@ -1,8 +1,10 @@
 import { filter } from 'lodash';
 import pino from 'pino';
 import { NotFoundError } from '../../../../util/errors';
-import { events } from '../mockdata/events.json';
+import mockEvents from '../mockdata/events.json';
 import { EventSearchResult, EventType, GetEventDatesResult } from './models';
+
+const events = mockEvents.events;
 
 export const getEvents = async (
   logger: pino.Logger,
