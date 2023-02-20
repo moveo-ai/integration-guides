@@ -45,7 +45,7 @@ const useWebview = (customer: 'demo') => {
     setIsLoading(false);
   }, [customerId]);
 
-  // initialize the Facebook SDK only when the channel is FB.
+  // Initialize the Facebook or Sunco SDK only when needed.
   useEffect(() => {
     if (channel === 'facebook') {
       initFacebookSDK();
@@ -105,7 +105,7 @@ const useWebview = (customer: 'demo') => {
   };
 
   /**
-   * For Facebook, call the SDK to close the webview. For Viber treat it as in the Web
+   * For Facebook and Sunco, call the SDK to close the webview. For Viber treat it as in the Web
    */
   const closeWebview = () => {
     if (channel === 'facebook') {
