@@ -1,0 +1,18 @@
+{
+  "survey": {
+    "bad": "Mau",
+    "excellent": "Excelente",
+    "experience": "Como você avaliaria sua experiência de bate-papo?",
+    "good": "Bom",
+    "great": "Excelente",
+    "okay": "Ok",
+    "submit": "Enviar",
+    "submitting": "Enviando sua resposta...",
+    "terrible": "Terrível",
+    "thanks": "Obrigado pelo seu feedback!",
+    "type_here": "Digite aqui...",
+    "well": "O que foi bem?",
+    "wrong": "O que deu errado?",
+    "survey": "Enquete"
+  }
+}

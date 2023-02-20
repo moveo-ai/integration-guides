@@ -1,16 +1,17 @@
-import Image from 'next/image';
-import PropTypes from 'prop-types';
+import cn from 'classnames';
+import CheckCircle from './Images/CheckCircle';
 
-const Success = ({ label }) => {
+type Props = {
+  label: string | undefined | null;
+  color: string;
+  className: string;
+};
+
+const Success = ({ label, color, className }: Props) => {
   return (
-    <div className="success-div p-10">
+    <div className={cn('success-div p-10', className)}>
       <div className="text-center">
-        <Image
-          width="66"
-          height="66"
-          alt="Sucess"
-          src="/assets/check-circle.svg"
-        />
+        <CheckCircle color={color} />
       </div>
       <p className="text-center p-1">{label}</p>
       <style jsx>{`
@@ -25,12 +26,10 @@ const Success = ({ label }) => {
   );
 };
 
-Success.propTypes = {
-  label: PropTypes.string,
-};
-
 Success.defaultProps = {
   label: 'Success',
+  color: '#1B66D6',
+  className: '',
 };
 
 export default Success;

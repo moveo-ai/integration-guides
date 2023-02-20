@@ -1,0 +1,18 @@
+{
+  "survey": {
+    "bad": "Rău",
+    "excellent": "Excelent",
+    "experience": "Cum ați evalua experiența dvs. de chat?",
+    "good": "Bun",
+    "great": "Grozav",
+    "okay": "bine",
+    "submit": "Trimite",
+    "submitting": "Se trimite răspunsul dvs....",
+    "terrible": "Teribil",
+    "thanks": "Multumim pentru feedback-ul dvs!",
+    "type_here": "Scrie aici...",
+    "well": "Ce a mers bine?",
+    "wrong": "Ce a mers prost?",
+    "survey": "Studiu"
+  }
+}

@@ -13,14 +13,13 @@ import Select from '../../components/Select';
 import Success from '../../components/Success';
 import { logger } from '../../config/logger';
 import useWebview from '../../hooks/useWebview';
-import { returnProductSchema } from '../../util/validator';
+import { demoSchema } from '../../util/validator';
 
 type FormInputs = {
-  productId: string;
-  orderNo: string;
   firstName: string;
   lastName: string;
-  reason: string;
+  gender: string;
+  region: string;
   city: string;
   address: string;
   zipCode: string;
@@ -28,7 +27,7 @@ type FormInputs = {
   email: string;
 };
 
-function ReturnProduct() {
+function Demo() {
   const { closeWebview, sendContext, missingParameters, params } =
     useWebview('demo');
   const { t, ready } = useTranslation();
@@ -40,59 +39,6 @@ function ReturnProduct() {
   const [formData, setFormData] = useState({});
   const [confirmationData, setConfirmationData] = useState([]);
 
-  const reasons = useMemo(
-    () => [
-      {
-        label: t('return_product_form.wrong_product'),
-        value: 'wrong_product',
-      },
-      {
-        label: t('return_product_form.defective_product'),
-        value: 'defective_product',
-      },
-      { label: t('return_product_form.changed_mind'), value: 'changed_mind' },
-      {
-        label: t('return_product_form.damaged_product'),
-        value: 'damaged_product',
-      },
-      { label: t('return_product_form.size'), value: 'size' },
-      { label: t('common.other'), value: 'other' },
-    ],
-    [t]
-  );
-
-  const placeholders = useMemo(() => {
-    return {
-      productId: t('return_product_form.product_id'),
-      orderNo: t('return_product_form.orderNo'),
-      firstName: t('common.name'),
-      lastName: t('common.surname'),
-      reason: t('return_product_form.reason'),
-      city: t('common.city'),
-      address: t('common.address'),
-      zipCode: t('common.zip_code'),
-      phoneNumber: t('common.phone_number'),
-      email: t('common.email'),
-    };
-  }, [t]);
-
-  const prepareConfirmationData = useCallback(
-    (data) => {
-      const preparedData = Object.entries(placeholders).reduce(
-        (total, [key, value]) => {
-          if (value === placeholders.reason && reasons) {
-            const shownValue = reasons.find((item) => item.value === data[key]);
-            return [...total, { label: value, value: shownValue?.label }];
-          }
-          return [...total, { label: value, value: data[key] }];
-        },
-        []
-      );
-      return preparedData;
-    },
-    [placeholders, reasons]
-  );
-
   useEffect(() => {
     setError(missingParameters);
   }, [missingParameters]);
@@ -101,19 +47,57 @@ function ReturnProduct() {
     setError(null);
   }, []);
 
+  const placeholders = useMemo(() => {
+    return {
+      firstName: t('common.name'),
+      lastName: t('common.surname'),
+      gender: t('demo-form.gender'),
+      region: t('demo-form.region'),
+      city: t('common.city'),
+      address: t('common.address'),
+      zipCode: t('common.zip_code'),
+      phoneNumber: t('common.phone_number'),
+      email: t('common.email'),
+    };
+  }, [t]);
+
+  const genders = useMemo(() => {
+    return [
+      { label: t('demo-form.male'), value: 'male' },
+      { label: t('demo-form.female'), value: 'female' },
+      { label: t('common.other'), value: 'other' },
+    ];
+  }, [t]);
+
+  const prepareConfirmationData = useCallback(
+    (data) => {
+      const preparedData = Object.entries(placeholders).reduce(
+        (total, [key, value]) => {
+          if (value === placeholders.gender && genders) {
+            const shownValue = genders.find((item) => item.value === data[key]);
+            return [...total, { label: value, value: shownValue?.label }];
+          }
+          return [...total, { label: value, value: data[key] }];
+        },
+        []
+      );
+      return preparedData;
+    },
+    [genders, placeholders]
+  );
+
   const {
     handleSubmit,
     formState: { errors },
     control,
   } = useForm<FormInputs>({
-    resolver: yupResolver(returnProductSchema),
+    resolver: yupResolver(demoSchema),
     reValidateMode: 'onChange',
     defaultValues: {
-      productId: '',
-      orderNo: '',
       firstName: '',
       lastName: '',
-      reason: '',
+      gender: '',
+      region: '',
       city: '',
       address: '',
       zipCode: '',
@@ -174,11 +158,12 @@ function ReturnProduct() {
           httpEquiv="Content-Security-Policy"
           content="upgrade-insecure-requests"
         />
-        <title>{t('return_product_form.title')}</title>
+        <title>{t('demo-form.title')}</title>
       </Head>
+
       <form
         onSubmit={handleSubmit(handleFormClick)}
-        className="bg-white rounded px-8 pt-6 pb-8 w-full h-full overflow-auto"
+        className="bg-white rounded px-8 pt-6 pb-8 w-full h-full"
       >
         <div className="flex flex-wrap">
           {error && (
@@ -188,27 +173,7 @@ function ReturnProduct() {
           )}
         </div>
         <div className="flex flex-wrap">
-          <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
-            <Input
-              control={control}
-              errors={errors.productId}
-              name="productId"
-              placeholder={placeholders.productId}
-              type="number"
-              maxLength={10}
-            />
-          </div>
-          <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
-            <Input
-              control={control}
-              errors={errors.orderNo}
-              name="orderNo"
-              placeholder={placeholders.orderNo}
-              type="number"
-              maxLength={10}
-            />
-          </div>
-          <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
+          <div className="mb-4 md:w-1/3 sm:w-1/2 xs:w-1 px-2 w-full h-20">
             <Input
               control={control}
               errors={errors.firstName}
@@ -216,10 +181,9 @@ function ReturnProduct() {
               placeholder={placeholders.firstName}
               upperCase
               type="string"
-              maxLength={64}
             />
           </div>
-          <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
+          <div className="mb-4 md:w-1/3 sm:w-1/2 xs:w-1 px-2 w-full h-20">
             <Input
               control={control}
               errors={errors.lastName}
@@ -227,16 +191,26 @@ function ReturnProduct() {
               placeholder={placeholders.lastName}
               upperCase
               type="string"
-              maxLength={64}
             />
           </div>
-          <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
+          <div className="mb-4 md:w-1/3 sm:w-1/2 xs:w-1 px-2 w-full h-20">
             <Select
               control={control}
-              errors={errors.reason}
-              options={reasons}
-              name="reason"
-              placeholder={placeholders.reason}
+              errors={errors.gender}
+              options={genders}
+              name="gender"
+              placeholder={placeholders.gender}
+            />
+          </div>
+        </div>
+        <div className="flex-wrap">
+          <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
+            <Input
+              control={control}
+              errors={errors.region}
+              name="region"
+              placeholder={placeholders.region}
+              type="string"
             />
           </div>
           <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -246,7 +220,6 @@ function ReturnProduct() {
               name="city"
               placeholder={placeholders.city}
               type="string"
-              maxLength={64}
             />
           </div>
           <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -256,7 +229,6 @@ function ReturnProduct() {
               name="address"
               placeholder={placeholders.address}
               type="text"
-              maxLength={64}
             />
           </div>
           <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -266,7 +238,6 @@ function ReturnProduct() {
               name="zipCode"
               placeholder={placeholders.zipCode}
               type="number"
-              maxLength={5}
             />
           </div>
           <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -276,7 +247,6 @@ function ReturnProduct() {
               placeholder={placeholders.phoneNumber}
               name="phoneNumber"
               type="number"
-              maxLength={10}
             />
           </div>
           <div className="mb-4 sm:w-1/2 xs:w-1 px-2 w-full h-20">
@@ -286,7 +256,6 @@ function ReturnProduct() {
               placeholder={placeholders.email}
               name="email"
               type="email"
-              maxLength={64}
             />
           </div>
         </div>
@@ -297,7 +266,7 @@ function ReturnProduct() {
             </div>
           </div>
         </div>
-        <div className="px-2 pb-4 w-full">
+        <div className="px-2 w-full">
           <Button type="submit" variant="contained" color="primary">
             {t('common.continue')}
           </Button>
@@ -314,4 +283,4 @@ function ReturnProduct() {
     </>
   );
 }
-export default ReturnProduct;
+export default Demo;

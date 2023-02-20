@@ -1,0 +1,95 @@
+{
+  "errors": {
+    "required": "Field is required",
+    "only_numbers": "Only numbers are allowed",
+    "phone_number": "Please insert valid phone number",
+    "email": "Please insert valid e-mail address",
+    "zip_code": "Please insert valid zip code",
+    "cvv": "Please insert a valid cvv",
+    "credit_card": "Please insert a valid credit card number",
+    "date": "Please insert a valid date",
+    "only_latin": "Only Latin characters are allowed",
+    "ten_digit_num": "Please insert a 10 digit number",
+    "credit_card_digits": "Card number consists of 16 digits",
+    "cvv_digits": "CVV consists of 3 digits",
+    "date_format": "Date should have format MM/YY"
+  },
+  "common": {
+    "loading": "Loading",
+    "continue": "Continue",
+    "email": "E-mail",
+    "name": "Name",
+    "surname": "Surname",
+    "city": "City",
+    "address": "Address",
+    "zip_code": "Zip code",
+    "phone_number": "Phone number",
+    "other": "Other",
+    "loading_message": "Sending information to Môveo",
+    "success_message": "Successfully sent information to Môveo",
+    "disclaimer": "The personal data that you insert will be stored and used by the company only when you submit this Form."
+  },
+  "payment_form": {
+    "loading": "Your payment is being processed",
+    "success": "Your payment was successful",
+    "title": "Pay securely with your credit or debit card",
+    "card_number": "Card Number",
+    "exp_date": "Expiration Date",
+    "card_holder": "Card Holder Name",
+    "cvv": "CVV",
+    "pay": "Pay",
+    "payment-form": "Payment Form"
+  },
+  "return_product_form": {
+    "wrong_product": "The product is not what I ordered",
+    "defective_product": "The product is defective",
+    "changed_mind": "I changed my mind",
+    "damaged_product": "I received a damaged product",
+    "size": "The size doesn't fit me",
+    "product_id": "Product Id",
+    "orderNo": "Order No.",
+    "reason": "Reason",
+    "title": "Return Product"
+  },
+  "survey": {
+    "survey": "Survey",
+    "bad": "Bad",
+    "excellent": "Excellent",
+    "experience": "How would you rate your chat experience?",
+    "good": "Good",
+    "great": "Great",
+    "okay": "Okay",
+    "submit": "Submit",
+    "submitting": "Submitting your response...",
+    "terrible": "Terrible",
+    "thanks": "Thank you for your feedback!",
+    "type_here": "Type here...",
+    "well": "What went well?",
+    "wrong": "What went wrong?",
+    "rating_required": "Rating is required"
+  },
+  "demo-form": {
+    "region": "Region",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "title": "Demo Form"
+  },
+  "list-property-form": {
+    "residential": "Residential",
+    "commercial": "Commercial",
+    "plot": "Plot",
+    "sell": "Sell",
+    "rent": "Rent",
+    "owner": "Owner's Name",
+    "offering_type": "Offering type",
+    "property_type": "Property type",
+    "size-sq-m": "Size (sq.m)",
+    "asking-price-eur": "Asking price (€)",
+    "location": "Location",
+    "title": "List Property"
+  },
+  "web-client-instance": {
+    "preview": "Preview"
+  }
+}

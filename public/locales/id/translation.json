@@ -1,0 +1,18 @@
+{
+  "survey": {
+    "bad": "Buruk",
+    "excellent": "Bagus sekali",
+    "experience": "Bagaimana Anda menilai pengalaman mengobrol Anda?",
+    "good": "Bagus",
+    "great": "Besar",
+    "okay": "Oke",
+    "submit": "Kirim",
+    "submitting": "Mengirim tanggapan Anda...",
+    "terrible": "Sangat buruk",
+    "thanks": "Terima kasih atas tanggapan Anda!",
+    "type_here": "Ketik di sini...",
+    "well": "Apa yang berjalan dengan baik?",
+    "wrong": "Apa yang salah?",
+    "survey": "Survei"
+  }
+}

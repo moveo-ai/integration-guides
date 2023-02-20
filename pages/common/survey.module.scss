@@ -1,0 +1,255 @@
+$char-counter: 3ch;
+$review-number: #f9f9f9;
+$review-input-background: #fafafa;
+$button-hover-background: #e1e1e1;
+$button-active-background: #c2c2c2;
+$review-number-dark: #1e2224;
+$review-input-background-dark: #1e2224;
+$button-hover-background-dark: #4f5563;
+$button-active-background-dark: #7f889c;
+
+.form {
+  height: 100%;
+  width: 100%;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0 1.5rem;
+  max-width: 380px;
+  margin: auto;
+
+  &.dark {
+    color: #fff;
+  }
+
+  .title {
+    letter-spacing: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    $max-width: 14rem;
+    line-height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin: 2rem 0;
+
+    @media (max-height: 270px) {
+      margin: 0.5rem;
+    }
+
+    & > span {
+      max-width: $max-width;
+      text-align: center;
+    }
+  }
+
+  .surveyWrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1.4;
+    padding: 0 1.5rem;
+  }
+
+  .surveyContainer {
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: 82px;
+    margin: 1.25rem 0 2.8rem;
+    flex: 1;
+
+    @media (max-height: 270px) {
+      margin: 0.5rem 0 0;
+    }
+
+    &:hover {
+      span {
+        opacity: 0;
+      }
+    }
+  }
+
+  .circleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 100%;
+
+    .circleBtn {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: $review-number;
+      font-weight: 600;
+      border: 0;
+      transition: background 0.3s;
+      cursor: pointer;
+      padding: 0;
+
+      @media (max-width: 300px) {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+
+      &.dark {
+        background: $review-number-dark;
+      }
+
+      + p {
+        margin-top: 8px;
+        font-size: 0.625rem;
+      }
+
+      &.hideDescription + p {
+        opacity: 0;
+        transition: 0.3s opacity;
+      }
+    }
+
+    &:hover .circleBtn {
+      background: $button-hover-background;
+      width: 50px;
+      height: 50px;
+
+      &.dark {
+        background: $button-hover-background-dark;
+      }
+
+      + p {
+        opacity: 1 !important;
+        transform: translateY(-1px);
+      }
+    }
+
+    &.active {
+      .circleBtn {
+        background: $button-active-background;
+        width: 3.125rem;
+        height: 3.125rem;
+
+        @media (max-width: 300px) {
+          width: 2.625rem;
+          height: 2.625rem;
+        }
+
+        &.dark {
+          background: $button-active-background-dark;
+        }
+
+        + p {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .feedback {
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    flex: 1.4;
+
+    & > p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.input {
+  $input-height: 150px;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  outline: 0;
+  border: 0;
+  padding: 16px 24px;
+  min-height: 20px;
+  overflow-y: auto;
+  word-break: break-word;
+  word-wrap: break-word;
+  appearance: none;
+  background: $review-input-background;
+  width: calc(100% - 72px);
+  height: $input-height;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: left;
+  resize: none;
+  font-family: inherit;
+  color: inherit;
+
+  @media (max-height: 270px) {
+    max-height: 5rem;
+  }
+
+  &.dark {
+    background: $review-input-background-dark;
+  }
+}
+
+.charCounter {
+  width: $char-counter;
+  position: relative;
+  left: 8rem;
+  bottom: 1.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0;
+  font-weight: 400;
+
+  @media (max-width: 360px) {
+    left: 7rem;
+  }
+
+  @media (max-width: 330px) {
+    left: 6rem;
+  }
+
+  @media (max-width: 300px) {
+    left: 5rem;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  font-weight: 600;
+  padding: 0;
+
+  button {
+    $width: 17rem;
+
+    width: $width;
+    margin-top: 16px;
+
+    @media (max-height: 270px) {
+      margin-top: 0;
+    }
+  }
+
+  .buttonLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+}
+
+.Success,
+.Loading {
+  height: 28rem;
+
+  &.dark {
+    color: #fff;
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "survey": {
+    "bad": "Špatný",
+    "excellent": "Vynikající",
+    "experience": "Jak byste ohodnotili svůj chat?",
+    "good": "Dobrý",
+    "great": "Skvělý",
+    "okay": "dobře",
+    "submit": "Předložit",
+    "submitting": "Odesílání odpovědi...",
+    "terrible": "Hrozný",
+    "thanks": "Děkujeme vám za vaši reakci!",
+    "type_here": "Sem napište...",
+    "well": "Co šlo dobře?",
+    "wrong": "Co se pokazilo?",
+    "survey": "Průzkum"
+  }
+}
