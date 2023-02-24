@@ -1,8 +1,10 @@
+import { t } from 'i18next';
 import { NextApiResponse } from 'next';
 import bodyRawParser from '../../../middlewares/body-raw-parser';
 import errorHandlerMiddleware from '../../../middlewares/error-handler';
 import { NextApiRequestWithLog } from '../../../types/moveo';
 import { MethodNotAllowed } from '../../../util/errors';
+import { i18nInstance } from '../../../util/i18n';
 import { checkHmacSignature } from '../util/helper';
 import * as API from './util/api';
 import { GetEventsContext, GetEventsResponse } from './util/models';
@@ -28,16 +30,9 @@ const handler = async (
   checkHmacSignature(req, GET_EVENTS_TOKEN);
 
   // Extract context variables from the request body
+  const { lang, session_id, channel, brain_id } = req?.body || {};
   const ctx = req?.body?.context as GetEventsContext;
-  const {
-    event_type_value: event_type,
-    area,
-    page_number,
-    lang,
-    session_id,
-    channel,
-    brain_id,
-  } = ctx;
+  const { event_type_value: event_type, area, page_number } = ctx;
 
   // Check for missing parameters
   const params: string[] = [];
@@ -55,10 +50,13 @@ const handler = async (
   let page = 0;
   if (page_number) {
     if (page_number < 0) {
-      return res.json(formatNoMoreEventsResponse(event_type, area));
+      return res.json(formatNoMoreEventsResponse(event_type, area, t));
     }
     page = page_number;
   }
+
+  // Load translations
+  await i18nInstance(lang);
 
   try {
     // Get the data from dummy endpoint
@@ -69,10 +67,11 @@ const handler = async (
       page,
       session_id,
       req.id,
-      req.moveo_id
+      req.moveo_id,
+      t
     );
     // Return a carousel using the data
-    res.json(formatEventSearchResponse(resp, event_type, area, page));
+    res.json(formatEventSearchResponse(resp, event_type, area, page, t));
   } catch (error) {
     const message = `Error fetching events with type: ${event_type} and area: ${area}`;
     req.log.error(error, message);

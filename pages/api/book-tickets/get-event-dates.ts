@@ -1,11 +1,13 @@
+import { t } from 'i18next';
 import { NextApiResponse } from 'next';
 import bodyRawParser from '../../../middlewares/body-raw-parser';
 import errorHandlerMiddleware from '../../../middlewares/error-handler';
 import { NextApiRequestWithLog, WebhookResponse } from '../../../types/moveo';
 import { MethodNotAllowed } from '../../../util/errors';
+import { i18nInstance } from '../../../util/i18n';
 import { checkHmacSignature } from '../util/helper';
 import * as API from './util/api';
-import { GetEventDates } from './util/models';
+import { GetEventDatesContext } from './util/models';
 import { formatEventDatesResponse, getEventDatesError } from './util/responses';
 
 const GET_EVENT_DATES_TOKEN = '123456789';
@@ -21,18 +23,25 @@ const handler = async (
     throw new MethodNotAllowed(req.method);
   }
 
+  // Validate request
   checkHmacSignature(req, GET_EVENT_DATES_TOKEN);
 
-  const ctx = req?.body?.context as GetEventDates;
-  const { event_id, lang, session_id, channel, brain_id } = ctx;
+  // Extract context variables from the request body
+  const { lang, session_id, channel, brain_id } = req?.body || {};
+  const ctx = req?.body?.context as GetEventDatesContext;
+  const { event_id } = ctx;
 
+  const log = req.log.child({ session_id, channel, brain_id, lang });
+
+  // Check for missing parameters
   if (!event_id) {
     const message = `Missing required parameter: event_id`;
     req.log.warn(message);
     return res.json(getEventDatesError(400, message));
   }
 
-  const log = req.log.child({ session_id, channel, brain_id, lang });
+  // Load translations
+  await i18nInstance(lang);
 
   try {
     const resp = await API.getDates(
@@ -40,9 +49,10 @@ const handler = async (
       event_id,
       session_id,
       req.id,
-      req.moveo_id
+      req.moveo_id,
+      t
     );
-    res.json(formatEventDatesResponse(resp) as WebhookResponse);
+    res.json(formatEventDatesResponse(resp, t) as WebhookResponse);
   } catch (error) {
     const message = `Error fetching dates for event: ${event_id}`;
     req.log.error(error, message);

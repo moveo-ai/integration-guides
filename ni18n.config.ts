@@ -1,4 +1,4 @@
-const supportedLngs = [
+export const supportedLngs = [
   'en',
   'el',
   'es',
