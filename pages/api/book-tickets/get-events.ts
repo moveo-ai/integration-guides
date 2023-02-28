@@ -55,10 +55,10 @@ const handler = async (
     page = page_number;
   }
 
-  // Load translations
-  await i18nInstance(lang);
-
   try {
+    // Load translations
+    await i18nInstance(lang);
+
     // Get the data from dummy endpoint
     const resp = await API.getEvents(
       log,

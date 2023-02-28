@@ -1,9 +1,10 @@
 import i18n from 'i18next';
-import Backend from 'i18next-http-backend';
 import { supportedLngs } from '../ni18n.config';
+import EL from '../public/locales/el/translation.json';
+import EN from '../public/locales/en/translation.json';
 
 export const i18nInstance = async (lang = undefined) => {
-  i18n.use(Backend).init({
+  i18n.init({
     initImmediate: false,
     lng: lang,
     load: 'currentOnly',
@@ -12,9 +13,7 @@ export const i18nInstance = async (lang = undefined) => {
     supportedLngs,
     fallbackLng: 'en',
     debug: true,
-    backend: {
-      loadPath: '/public/locales/{{lng}}/{{ns}}.json',
-    },
+    resources: { en: { translation: EN }, el: { translation: EL } },
     interpolation: {
       escapeValue: false,
     },
