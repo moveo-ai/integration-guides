@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ['./pages/**/*.tsx', './pages/**/*.js'],
+  content: ['./pages/**/*.tsx', './pages/**/*.js', './components/**/*.tsx'],
   theme: {
     extend: {
       margin: {

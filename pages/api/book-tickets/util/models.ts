@@ -64,12 +64,8 @@ export interface GetEventsResponse extends WebhookResponse {
   };
 }
 
-export type GetEventDates = {
+export type GetEventDatesContext = {
   event_id: number;
-  lang: Language;
-  session_id: string;
-  channel: MoveoChannel;
-  brain_id: string;
 };
 
 export type GetEventDatesResult = { dates: string[]; price: number };

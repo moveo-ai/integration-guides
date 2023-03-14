@@ -4,6 +4,7 @@ import {
   MoveoChannel,
   MoveoContext,
   MoveoContextWithPageInfo,
+  SurveyData,
 } from '../types/moveo';
 import { AppError } from '../util/errors';
 import { createAxiosInstance } from '../util/fetcher';
@@ -99,5 +100,39 @@ export const getContextFromMoveo = async (
     return response;
   } catch (error) {
     throw AppError.fromError(logger, error);
+  }
+};
+/**
+ * Sends the rating and feedback to Analytics
+ */
+export const sendSurveyToMoveo = async (
+  data: { survey: SurveyData; user_id: string | undefined },
+  channel: MoveoChannel,
+  integrationId: string,
+  sessionId: string,
+  customerId: string
+): Promise<AxiosResponse> => {
+  try {
+    const url = getIntegrationUrl(location.host);
+    const signature = await signRequest(
+      customerId,
+      data.user_id || '',
+      channel
+    );
+
+    const axios = createAxiosInstance();
+    const response = await axios.post(
+      `${url}/v1/survey/${integrationId}`,
+      { ...data.survey, session_id: sessionId, timestamp: Date.now() },
+      {
+        headers: {
+          Authorization: `Bearer ${signature}`,
+          'X-Moveo-Session-Id': sessionId,
+        },
+      }
+    );
+    return response;
+  } catch (error) {
+    throw AppError.fromError(logger, error as Error);
   }
 };

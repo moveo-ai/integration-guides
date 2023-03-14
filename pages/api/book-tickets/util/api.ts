@@ -1,11 +1,13 @@
+import { TFunction } from 'i18next';
 import { filter } from 'lodash';
 import pino from 'pino';
 import { NotFoundError } from '../../../../util/errors';
-import mockEvents from '../mockdata/events.json';
+import mockedEvents from '../mockdata/events';
 import { EventSearchResult, EventType, GetEventDatesResult } from './models';
 
-const events = mockEvents.events;
-
+/**
+ *  Returns a dummy response for the event search
+ */
 export const getEvents = async (
   logger: pino.Logger,
   event_type: EventType,
@@ -13,7 +15,8 @@ export const getEvents = async (
   page_number: number,
   session_id: string,
   request_id: string,
-  moveo_request_id: string
+  moveo_request_id: string,
+  t: TFunction
 ): Promise<EventSearchResult> => {
   const url = 'https://dummy-url-that-returns-events';
 
@@ -24,7 +27,7 @@ export const getEvents = async (
     'X-Moveo-Request-Id': moveo_request_id,
     'X-Request-Id': request_id,
   };
-
+  const events = mockedEvents(t);
   const HITS = filter(
     events,
     (e) =>
@@ -48,12 +51,16 @@ export const getEvents = async (
   };
 };
 
+/**
+ * Returns the available dates and price for an event
+ */
 export const getDates = async (
   logger: pino.Logger,
   eventId: number,
   session_id: string,
   request_id: string,
-  moveo_request_id: string
+  moveo_request_id: string,
+  t: TFunction
 ): Promise<GetEventDatesResult> => {
   const url = 'https://dummy-url-that-returns-dates';
 
@@ -64,7 +71,7 @@ export const getDates = async (
     'X-Moveo-Request-Id': moveo_request_id,
     'X-Request-Id': request_id,
   };
-
+  const events = mockedEvents(t);
   const event = events.find((e) => e.eventId === eventId);
 
   if (event) {

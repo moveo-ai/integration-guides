@@ -1,25 +1,25 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
+import cn from 'classnames';
+
+import styles from './Loading.module.scss';
 
 interface Props {
-  label: string;
+  label: string | null | undefined;
+  className: string;
 }
 
-const Loading = ({ label }: Props) => {
+const Loading = ({ label, className }: Props) => {
   return (
-    <div className="p-10">
-      <div className="loader ease-linear mx-auto rounded-full border-4 border-t-4 border-gray-200 h-10 w-10" />
-      <p className="text-center p-1">{label}</p>
+    <div className={cn(styles.wrapper, className)}>
+      <CircularProgress />
+      <p className={styles.label}>{label}</p>
     </div>
   );
 };
 
-Loading.propTypes = {
-  label: PropTypes.string,
-};
-
 Loading.defaultProps = {
   label: 'Loading...',
+  className: '',
 };
 
 export default Loading;

@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import PropTypes from 'prop-types';
 import { ChangeEvent } from 'react';
 import { Controller } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { errorMessage } from '../util/validator';
 
 const Input = ({
@@ -18,6 +19,7 @@ const Input = ({
   maxLength,
   isCurrency,
 }) => {
+  const { t } = useTranslation();
   const formatInput = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -70,7 +72,7 @@ const Input = ({
               label={placeholder}
               variant="outlined"
               error={!!errors}
-              helperText={!!errors && errorMessage(name, errors)}
+              helperText={!!errors && errorMessage(name, errors, t)}
               fullWidth
               type={type}
               value={value}

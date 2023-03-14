@@ -14,44 +14,50 @@ import {
 const PLACEHOLDER_IMAGE =
   'https://c.pxhere.com/images/4b/85/2686f1f88d3b2229c9bc0d573439-1588581.jpg!d';
 
-const createLastCard = (eventType: string, area: string): CarouselCardProps => {
+const createLastCard = (
+  eventType: string,
+  area: string,
+  t
+): CarouselCardProps => {
   return {
     media: {
       url: 'https://freesvg.org/img/go-next.png',
       type: 'image',
     },
-    title: `Would you like to view more ${eventType}?`,
-    subtitle: `To see more ${eventType} in ${area}, please press below`,
+    title: t('book-tickets.view_more_title', [eventType]),
+    subtitle: t('book-tickets.view_more_subtitle', [eventType, area]),
     buttons: [
       {
-        value: `I want to see more ${eventType} in ${area}`,
-        label: 'View more',
+        value: t('book-tickets.view_more_button_value', [eventType, area]),
+        label: t('book-tickets.view_more_button_label'),
         type: 'postback',
       },
     ],
   };
 };
 
+/**
+ * Returns a carousel of events using the mock data
+ */
 export const formatEventSearchResponse = (
   searchResult: EventSearchResult,
   eventType: EventType,
   area: string,
-  page: number
+  page: number,
+  t
 ): GetEventsResponse => {
   // No results
   if (searchResult?.nbHits === 0) {
     return {
       output: {
         get_events_code: 204,
-        get_events_msg: 'No results',
+        get_events_msg: t('book-tickets.no_results'),
       },
       responses: [
         {
           action_id: uuidv4(),
           type: 'text',
-          texts: [
-            `There are no ${eventType} available in ${area} for the next month`,
-          ],
+          texts: [t('book-tickets.no_results_text', [eventType, area])],
         },
       ],
     };
@@ -63,7 +69,11 @@ export const formatEventSearchResponse = (
       action_id: uuidv4(),
       type: 'text',
       texts: [
-        `There are ${searchResult.nbHits} ${eventType} available in ${area}`,
+        t('book-tickets.number_of_events_in_area', [
+          searchResult?.nbHits,
+          eventType,
+          area,
+        ]),
       ],
     });
   }
@@ -72,26 +82,34 @@ export const formatEventSearchResponse = (
     pageNumber = -1;
   }
   const cards = searchResult?.hits?.map((result): CarouselCardProps => {
-    const eventTitle = `${result?.title} in ${result.area}`;
+    const eventTitle = t('book-tickets.event_title', [
+      result?.title,
+      result?.area,
+    ]);
     return {
       media: {
         url: result?.imageUrl || PLACEHOLDER_IMAGE,
         type: 'image',
       },
-      title: eventTitle || 'No title',
+      title: eventTitle || t('book-tickets.no_title'),
       buttons: [
         {
-          value: `Booking for specific event with name "${eventTitle}" ${result?.eventId}`,
-          label: 'Book tickets',
+          value: t('book-tickets.carousel_button_value', [
+            eventTitle,
+            result?.eventId,
+          ]),
+          label: t('book-tickets.carousel_button_label'),
           type: 'postback',
         },
       ],
-      subtitle: result?.price ? `Tickets cost ${result?.price}€` : 'No price',
+      subtitle: result?.price
+        ? t('book-tickets.tickets_cost', [result?.price])
+        : t('book-tickets.no_price'),
     };
   });
 
   if (searchResult.hasMoreResults) {
-    cards.push(createLastCard(eventType, area));
+    cards.push(createLastCard(eventType, area, t));
   }
   responses.push({
     action_id: uuidv4(),
@@ -109,20 +127,19 @@ export const formatEventSearchResponse = (
 };
 export const formatNoMoreEventsResponse = (
   eventType: EventType,
-  area: string
+  area: string,
+  t
 ): GetEventsResponse => {
   return {
     output: {
       get_events_code: 200,
-      get_events_msg: 'No more events',
+      get_events_msg: t('book-tickets.no_more_events'),
     },
     responses: [
       {
         action_id: uuidv4(),
         type: 'text',
-        texts: [
-          `There are no other ${eventType} available in ${area} for the next month`,
-        ],
+        texts: [t('book-tickets.no_more_events_text', [eventType, area])],
       },
     ],
   };
@@ -139,8 +156,11 @@ export const getEventsError = (
     },
   };
 };
-
-export const formatEventDatesResponse = (result: GetEventDatesResult) => {
+/**
+ *  Returns a text response with the dates
+ *  and the price as a context variable
+ */
+export const formatEventDatesResponse = (result: GetEventDatesResult, t) => {
   const dateOptions = result.dates.map((date) => ({
     text: `1e53a5b1-4164-4149-8145-509baa1a6121 ${date}`,
     label: date,
@@ -151,7 +171,7 @@ export const formatEventDatesResponse = (result: GetEventDatesResult) => {
       {
         action_id: uuidv4(),
         type: 'text',
-        texts: ['Please select one of the available dates for the event'],
+        texts: [t('book-tickets.select_date')],
         options: dateOptions,
       },
     ],

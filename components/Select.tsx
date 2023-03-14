@@ -6,6 +6,7 @@ import MaterialSelect from '@mui/material/Select';
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 import { Control, Controller } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { errorMessage } from '../util/validator';
 
 interface SelectProps {
@@ -28,6 +29,7 @@ const Select = ({
   options,
   defaultValue,
 }: SelectProps) => {
+  const { t } = useTranslation();
   const items = useMemo(
     () =>
       options.map((item) => (
@@ -44,11 +46,11 @@ const Select = ({
         <Controller
           render={({ field: { value, onChange } }) => (
             <MaterialSelect
-              variant="standard"
               native
               value={value}
               onChange={onChange}
               label={placeholder}
+              error={!!errors}
             >
               <option aria-label="Empty option" style={{ display: 'none' }} />
               {items}
@@ -60,7 +62,7 @@ const Select = ({
         />
       </FormControl>
       {errors && (
-        <FormHelperText error>{errorMessage(name, errors)}</FormHelperText>
+        <FormHelperText error>{errorMessage(name, errors, t)}</FormHelperText>
       )}
     </div>
   );

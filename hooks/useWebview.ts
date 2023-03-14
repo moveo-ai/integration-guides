@@ -6,6 +6,7 @@ import initFacebookSDK, {
   getSupportedFeatures as getFacebookFeatures,
 } from '../lib/facebook';
 import { getContextFromMoveo, sendContextToMoveo } from '../lib/moveo';
+import initSuncoSdk, { closeWebview as closeSuncoWebview } from '../lib/sunco';
 import {
   MoveoChannel,
   MoveoContext,
@@ -22,6 +23,7 @@ const useWebview = (customer: 'demo') => {
   const [sessionId, setSessionId] = useState(null);
   const [triggerNodeId, setTriggerNodeId] = useState(null);
   const [customerId, setCustomerId] = useState<string>(customer);
+  const [brainLanguage, setBrainLanguage] = useState<string | null>(null);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -33,6 +35,7 @@ const useWebview = (customer: 'demo') => {
     setUserId(urlParams.get('user_id'));
     setSessionId(urlParams.get('session_id'));
     setTriggerNodeId(urlParams.get('trigger_node_id'));
+    setBrainLanguage(urlParams.get('lang'));
 
     // For facebook page_id is the customerId. Each facebook page is a customer
     const pageId = urlParams.get('page_id');
@@ -42,10 +45,13 @@ const useWebview = (customer: 'demo') => {
     setIsLoading(false);
   }, [customerId]);
 
-  // initialize the Facebook SDK only when the channel is FB.
+  // Initialize the Facebook or Sunco SDK only when needed.
   useEffect(() => {
     if (channel === 'facebook') {
       initFacebookSDK();
+    }
+    if (channel === 'sunco') {
+      initSuncoSdk();
     }
   }, [channel]);
 
@@ -99,11 +105,14 @@ const useWebview = (customer: 'demo') => {
   };
 
   /**
-   * For Facebook, call the SDK to close the webview. For Viber treat it as in the Web
+   * For Facebook and Sunco, call the SDK to close the webview. For Viber treat it as in the Web
    */
   const closeWebview = () => {
     if (channel === 'facebook') {
       return closeFacebookWebview();
+    }
+    if (channel === 'sunco') {
+      return closeSuncoWebview();
     }
     return window.close();
   };
@@ -172,6 +181,14 @@ const useWebview = (customer: 'demo') => {
     getSupportedFeatures,
     missingParameters,
     isLoading,
+    params: {
+      brainLanguage,
+      userId,
+      channel,
+      customerId,
+      integrationId,
+      sessionId,
+    },
   };
 };
 

@@ -7,7 +7,8 @@ type MoveoChannel =
   | 'web'
   | 'zendesk'
   | 'hangout'
-  | 'apifon';
+  | 'apifon'
+  | 'sunco';
 
 type MoveoContextWithPageInfo = {
   context: MoveoContext;
@@ -114,3 +115,8 @@ type ApiHandler<T = any> =
     ) => void | Promise<void>);
 
 type Language = 'el' | 'en' | 'ro' | 'pt-br' | 'it' | 'de' | 'es' | 'fr' | 'bg';
+
+export type SurveyData = {
+  feedback: string;
+  rating: number;
+};

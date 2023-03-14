@@ -27,7 +27,7 @@ yarn dev
 This is a next.js project where webhooks and webviews are stored under the `/pages` directory
 
 ```
-pages
+pages                                      // Webviews are stored under /pages folder
 ├── _app.tsx
 ├── _document.tsx
 ├── api                                    // Webhooks are stored under the /api folder
@@ -37,17 +37,50 @@ pages
 │   │   └── random-number-generator.ts     // Returns a random number in the VA context
 │   ├── ecommerce
 │   │   ├── purchases-get-recent.ts        // Returns a carousel of recent purchases along with context variables
+│   │   ├── mockdata
+│   │   │   └── purchases.json
 │   │   └── util
 │   │       ├── api.ts
 │   │       ├── helper.ts
 │   │       ├── models.ts
 │   │       └── purchases.ts
+│   ├── book-tickets                       
+│   │   ├── calculate-total-cost.ts        // Returns the total cost of a booking
+│   │   ├── get-event-dates.ts             // Returns a text response with date options for an event
+│   │   ├── get-events.ts                  // Returns a carousel of available events
+│   │   ├── mockdata
+│   │   │   └── events.json
+│   │   ├── README.md
+│   │   └── util
+│   │       ├── api.ts
+│   │       ├── models.ts
+│   │       └── responses.ts
+│   ├── lead-generation
+│   │   ├── find-property.ts               // Returns a carousel of real estate properties
+│   │   ├── README.md
+│   │   └── util
+│   │       ├── api.ts
+│   │       ├── helper.ts
+│   │       ├── models.ts
+│   │       └── responses.ts
 │   └── util
 │       └── helper.ts
 ├── demo
-│   └── demoForm.tsx                       // Webviews are stored under the /demo folder
+│   └── demo-form.tsx                      // Webview of a simple demo form
 ├── web-client
 │   └── web-client-instance.tsx            // Web-client example ( hosted as a webview )
+├── book-tickets
+│   ├── payment-form.tsx                   // Webview of a payment form
+│   └── README.md
+├── common
+│   ├── survey.module.scss
+│   └── survey.tsx                         // Webview of our default survey
+├── customer-support
+│   ├── README.md
+│   └── return-product-form.tsx            // Webview for returning a product
+├── lead-generation
+│   ├── list-property-form.tsx             // Webview for listing a real estate property
+│   └── README.md
 └── index.tsx
 ```
 

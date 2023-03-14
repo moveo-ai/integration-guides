@@ -6,16 +6,12 @@ export const LENGTH_S = 64;
 export const LENGTH_M = 128;
 export const LENGTH_L = 256;
 
-export const errorMessage = (name: string, errors: { type: string }) => {
+export const errorMessage = (name: string, errors: { type: string }, t) => {
   if (errors?.type === 'required') {
-    return 'Field is required';
+    return t('errors.required');
   }
   if (errors?.type === 'oneOf') {
     switch (name) {
-      case 'terms':
-        return 'Field is required';
-      case 'country':
-        return 'Η υπηκοότητα πρέπει να είναι ελληνική';
       default:
         return '';
     }
@@ -23,15 +19,14 @@ export const errorMessage = (name: string, errors: { type: string }) => {
   if (errors?.type === 'length') {
     switch (name) {
       case 'productId':
-        return 'Please insert a 10 digit number';
       case 'orderNo':
-        return 'Please insert a 10 digit number';
+        return t('errors.ten_digit_num');
       case 'cardNumber':
-        return 'Card number consists of 16 digits';
+        return t('errors.credit_card_digits');
       case 'cvv':
-        return 'CVV consists of 3 digits';
+        return t('errors.cvv_digits');
       case 'expDate':
-        return 'Date should have format MM/YY';
+        return t('errors.date_format');
       default:
         return '';
     }
@@ -39,11 +34,9 @@ export const errorMessage = (name: string, errors: { type: string }) => {
   if (errors?.type === 'typeError') {
     switch (name) {
       case 'cardID':
-        return 'Only numbers are allowed';
       case 'productId':
-        return 'Only numbers are allowed';
       case 'orderNo':
-        return 'Only numbers are allowed';
+        return t('errors.only_numbers');
       default:
         return '';
     }
@@ -51,29 +44,23 @@ export const errorMessage = (name: string, errors: { type: string }) => {
   if (errors?.type === 'matches') {
     switch (name) {
       case 'firstName':
-        return `Only Greek or Latin characters are allowed`;
       case 'lastName':
-        return `Only Greek or Latin characters are allowed`;
-      case 'fatherName':
-        return `Only Greek or Latin characters are allowed`;
       case 'region':
-        return `Only Greek or Latin characters are allowed`;
       case 'city':
-        return `Only Greek or Latin characters are allowed`;
       case 'cardHolder':
-        return `Only Greek or Latin characters are allowed`;
+        return t('errors.only_latin');
       case 'phoneNumber':
-        return 'Please insert valid phone number';
+        return t('errors.phone_number');
       case 'email':
-        return 'Please insert valid email address';
+        return t('errors.email');
       case 'zipCode':
-        return 'Please insert valid zip code';
+        return t('errors.zip_code');
       case 'cvv':
-        return 'Please insert a valid cvv';
+        return t('errors.cvv');
       case 'cardNumber':
-        return 'Please insert a valid card number';
+        return t('errors.credit_card');
       case 'expDate':
-        return 'Please insert a valid date';
+        return t('errors.date');
       default:
         return '';
     }

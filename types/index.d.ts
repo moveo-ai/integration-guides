@@ -27,6 +27,13 @@ interface Window {
       error: (error: Error) => void
     ) => void;
   };
+  /**
+   * Sunco extensions.
+   * Documentation: https://docs.smooch.io/guide/conversation-extensions/
+   */
+  WebviewSdk: {
+    close: (success: () => void, error: (error: Error) => void) => void;
+  };
 
   extAsyncInit: () => void;
 }

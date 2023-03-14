@@ -30,11 +30,9 @@
 
 html,
 body {
-  color: var(--color-black);
   font-family: var(--font-primary);
   height: 100%;
   overflow-x: hidden;
-  background-color: #e7e7e7;
 }
 
 button:focus,
@@ -105,16 +103,6 @@ input[type='number'] {
 
 .disclaimer-text {
   font-size: 13px;
-  margin-bottom: 10px;
-}
-
-.payment-disclaimer {
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.payment-emoji {
-  font-size: 24px;
   margin-bottom: 10px;
 }
 

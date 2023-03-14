@@ -1,0 +1,18 @@
+{
+  "survey": {
+    "bad": "Mal",
+    "excellent": "Excellent",
+    "experience": "Comment évaluez-vous votre expérience de chat ?",
+    "good": "Bien",
+    "great": "Super",
+    "okay": "D'accord",
+    "submit": "Nous faire parvenir",
+    "submitting": "Envoi de votre réponse...",
+    "terrible": "Terrible",
+    "thanks": "Merci pour votre avis!",
+    "type_here": "Écrivez ici...",
+    "well": "Qu'est-ce qui s'est bien passé?",
+    "wrong": "Qu'est ce qui ne s'est pas bien passé?",
+    "survey": "Enquête"
+  }
+}
