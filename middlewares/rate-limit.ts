@@ -1,4 +1,4 @@
-import LRU from 'lru-cache';
+import {LRUCache} from 'lru-cache';
 import { NextApiResponse } from 'next';
 import { NextApiRequestWithLog } from '../types/moveo';
 import { RateLimitationError } from '../util/errors';
@@ -9,7 +9,7 @@ interface Props {
   limit: number;
 }
 const rateLimit = (options: Props) => {
-  const tokenCache = new LRU({
+  const tokenCache = new LRUCache({
     max: options.uniqueTokenPerInterval || 500,
     ttl: options.interval || 90000,
   });
