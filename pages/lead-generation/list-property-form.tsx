@@ -21,7 +21,7 @@ type FormInputs = {
   offeringType: string;
   propertyType: string;
   location: string;
-  size: number;
+  size: string;
   price: string;
   email: string;
 };
@@ -118,7 +118,7 @@ function ListProperty() {
       offeringType: 'sell',
       propertyType: 'residential',
       location: 'EXAMPLE STR 42, 50500 NEW YORK',
-      size: 100,
+      size: '100',
       price: '100.000',
       email: 'example@mail.com',
     },
