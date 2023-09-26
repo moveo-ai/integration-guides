@@ -65,7 +65,7 @@ export interface GetEventsResponse extends WebhookResponse {
 }
 
 export type GetEventDatesContext = {
-  event_id: number;
+  event_id: string;
 };
 
 export type GetEventDatesResult = { dates: string[]; price: number };

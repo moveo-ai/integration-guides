@@ -56,7 +56,7 @@ export const getEvents = async (
  */
 export const getDates = async (
   logger: pino.Logger,
-  eventId: number,
+  eventId: string,
   session_id: string,
   request_id: string,
   moveo_request_id: string,
@@ -72,7 +72,7 @@ export const getDates = async (
     'X-Request-Id': request_id,
   };
   const events = mockedEvents(t);
-  const event = events.find((e) => e.eventId === eventId);
+  const event = events.find((e) => e.eventId.toString() === eventId);
 
   if (event) {
     logger.info(
