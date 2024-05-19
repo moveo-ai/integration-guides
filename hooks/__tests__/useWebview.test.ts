@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import { rest } from 'msw';
+import { http, HttpResponse } from 'msw';
 import { setupServer } from 'msw/node';
 import initFacebookSDK, * as facebook from '../../lib/facebook';
 import { sleep } from '../../util/util';
@@ -12,14 +12,15 @@ const createLocationFromUrl = (url: string) =>
 
 describe('useWebview', () => {
   const server = setupServer(
-    rest.post(
-      'https://channels.moveo.ai/v1/facebook/i1/webview',
-      (req, res, ctx) => res(ctx.json(req.body))
+    http.get('https://moveo.ai/api/auth/sign-request', () =>
+      HttpResponse.json({ token: 'sign-token' })
     ),
-
-    // Mock signing requests
-    rest.get(`/api/auth/sign-request`, (req, res, ctx) =>
-      res(ctx.json({ token: 'sign-token' }))
+    http.post(
+      'https://channels.moveo.ai/v1/facebook/i1/webview',
+      async ({ request }) => {
+        const body = await request.json();
+        return HttpResponse.json(body);
+      }
     )
   );
 
@@ -38,6 +39,10 @@ describe('useWebview', () => {
       .spyOn(facebook, 'getPageContext')
       .mockReturnValue(pageContext);
     return server.listen();
+  });
+
+  afterEach(() => {
+    server.resetHandlers();
   });
 
   afterAll(() => {

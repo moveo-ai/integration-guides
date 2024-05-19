@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Head from 'next/head';
 import { useSyncLanguage } from 'ni18n';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { Resolver, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import Alert from '../../components/Alert';
 import Input from '../../components/Input';
@@ -75,7 +75,7 @@ function PaymentForm() {
     formState: { errors },
     control,
   } = useForm<FormInputs>({
-    resolver: yupResolver(paymentFormSchema),
+    resolver: yupResolver(paymentFormSchema) as Resolver<FormInputs>,
     reValidateMode: 'onChange',
     defaultValues: {
       cardNumber: '1234567887654321',

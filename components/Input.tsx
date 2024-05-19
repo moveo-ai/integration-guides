@@ -1,10 +1,23 @@
 import FormHelperText from '@mui/material/FormHelperText';
 import TextField from '@mui/material/TextField';
-import PropTypes from 'prop-types';
 import { ChangeEvent } from 'react';
 import { Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { errorMessage } from '../util/validator';
+
+type InputProps = {
+  errors?: any;
+  name: string;
+  control: any;
+  placeholder?: string;
+  information?: string;
+  onBlur?: (name: string, value: string) => void;
+  type?: 'text' | 'number' | 'password' | 'email' | 'string';
+  upperCase?: boolean;
+  inputMode?: 'text' | 'numeric' | 'decimal' | 'tel' | 'email' | 'url' | 'none';
+  maxLength?: number;
+  isCurrency?: boolean;
+};
 
 const Input = ({
   errors,
@@ -12,13 +25,13 @@ const Input = ({
   control,
   placeholder,
   information,
-  onBlur,
-  type,
+  onBlur = (_, __) => {},
+  type = 'text',
   upperCase,
-  inputMode,
+  inputMode = 'none',
   maxLength,
   isCurrency,
-}) => {
+}: InputProps) => {
   const { t } = useTranslation();
   const formatInput = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -91,35 +104,6 @@ const Input = ({
       {!errors && <FormHelperText>{information}</FormHelperText>}
     </>
   );
-};
-
-Input.propTypes = {
-  errors: PropTypes.shape({
-    message: PropTypes.string,
-    type: PropTypes.string,
-  }),
-  name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
-  control: PropTypes.object.isRequired,
-  information: PropTypes.string,
-  onBlur: PropTypes.func.isRequired,
-  type: PropTypes.string,
-  autoComplete: PropTypes.string,
-  inputMode: PropTypes.string,
-  upperCase: PropTypes.bool,
-  maxLength: PropTypes.number,
-  isCurrency: PropTypes.bool,
-};
-
-Input.defaultProps = {
-  errors: null,
-  placeholder: '',
-  information: '',
-  type: 'text',
-  inputMode: 'none',
-  autoComplete: 'off',
-  upperCase: false,
-  onBlur: () => null,
 };
 
 export default Input;

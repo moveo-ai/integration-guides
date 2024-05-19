@@ -1,4 +1,4 @@
-import {LRUCache} from 'lru-cache';
+import { LRUCache } from 'lru-cache';
 import { NextApiResponse } from 'next';
 import { NextApiRequestWithLog } from '../types/moveo';
 import { RateLimitationError } from '../util/errors';

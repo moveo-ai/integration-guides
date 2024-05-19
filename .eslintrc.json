@@ -1,7 +1,7 @@
 {
   "env": {
     "browser": true,
-    "es6": true,
+    "es2020": true,
     "jest": true
   },
   "plugins": ["@typescript-eslint"],
@@ -20,6 +20,11 @@
     "react-hooks/exhaustive-deps": "warn",
     "react/no-unknown-property": [2, { "ignore": ["jsx", "global"] }],
     "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { "argsIgnorePattern": "^_" }
+    ],
+
     "no-console": "warn"
   }
 }
