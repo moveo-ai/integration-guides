@@ -1,10 +1,11 @@
 // optional: configure or set up a testing framework before each test
 // if you delete this file, remove `setupFilesAfterEnv` from `jest.config.js`
+/*  eslint-disable @typescript-eslint/no-var-requires */
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { TextDecoder, TextEncoder } from 'node:util';
-import { ReadableStream } from 'node:stream/web';
+const { TextDecoder, TextEncoder } = require('node:util');
+const { ReadableStream } = require('node:stream/web');
 
 Object.defineProperties(globalThis, {
   TextDecoder: { value: TextDecoder },
@@ -12,8 +13,8 @@ Object.defineProperties(globalThis, {
   ReadableStream: { value: ReadableStream },
 });
 
-import { Blob, File } from 'node:buffer';
-import { fetch, Headers, FormData, Request, Response } from 'undici';
+const { Blob, File } = require('node:buffer');
+const { fetch, Headers, FormData, Request, Response } = require('undici');
 
 Object.defineProperties(globalThis, {
   fetch: { value: fetch, writable: true },

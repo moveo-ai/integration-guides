@@ -1,12 +1,16 @@
 import React from 'react';
 
 interface Props {
-  title: string;
-  message: string;
-  onClose: () => void;
+  title?: string;
+  message?: string;
+  onClose?: () => void;
 }
 
-const Alert = ({ title, message, onClose }: Props) => {
+const Alert = ({
+  title = 'Error',
+  message = 'There was a problem with the request',
+  onClose,
+}: Props) => {
   return (
     <div
       className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
@@ -29,11 +33,6 @@ const Alert = ({ title, message, onClose }: Props) => {
       </span>
     </div>
   );
-};
-
-Alert.defaultProps = {
-  title: 'Error',
-  message: 'There was a problem with the request',
 };
 
 export default Alert;

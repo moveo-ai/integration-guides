@@ -5,15 +5,22 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
-import PropTypes from 'prop-types';
+
+type ConfirmationBoxProps = {
+  data?: { label: string; value: string }[];
+  open: boolean;
+  disclaimers?: string[];
+  handleClose: () => void;
+  handleSubmitData: () => void;
+};
 
 const ConfirmationBox = ({
-  data,
+  data = [],
   open,
-  disclaimers,
+  disclaimers = [],
   handleClose,
   handleSubmitData,
-}) => {
+}: ConfirmationBoxProps) => {
   return (
     <Dialog
       onClose={handleClose}
@@ -97,23 +104,6 @@ const ConfirmationBox = ({
       `}</style>
     </Dialog>
   );
-};
-
-ConfirmationBox.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string,
-      label: PropTypes.string,
-    })
-  ).isRequired,
-  disclaimers: PropTypes.array,
-  open: PropTypes.bool.isRequired,
-  handleClose: PropTypes.func.isRequired,
-  handleSubmitData: PropTypes.func.isRequired,
-};
-
-ConfirmationBox.defaultProps = {
-  disclaimers: [],
 };
 
 export default ConfirmationBox;

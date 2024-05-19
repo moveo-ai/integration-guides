@@ -2,12 +2,16 @@ import cn from 'classnames';
 import CheckCircle from './Images/CheckCircle';
 
 type Props = {
-  label: string | undefined | null;
-  color: string;
-  className: string;
+  label?: string;
+  color?: string;
+  className?: string;
 };
 
-const Success = ({ label, color, className }: Props) => {
+const Success = ({
+  label = 'Success',
+  color = '#1B66D6',
+  className,
+}: Props) => {
   return (
     <div className={cn('success-div p-10', className)}>
       <div className="text-center">
@@ -24,12 +28,6 @@ const Success = ({ label, color, className }: Props) => {
       `}</style>
     </div>
   );
-};
-
-Success.defaultProps = {
-  label: 'Success',
-  color: '#1B66D6',
-  className: '',
 };
 
 export default Success;
