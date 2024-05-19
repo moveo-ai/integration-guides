@@ -5,14 +5,13 @@ import { AppError, MethodNotAllowed } from '../../../util/errors';
 import { createAxiosInstance } from '../../../util/fetcher';
 
 export interface JokeResponse {
-  error: boolean
-  setup: string
-  delivery: string
-  id: number
-  safe: boolean
-  lang: string
+  error: boolean;
+  setup: string;
+  delivery: string;
+  id: number;
+  safe: boolean;
+  lang: string;
 }
-
 
 const handler = async (
   req: NextApiRequestWithLog,
@@ -23,17 +22,16 @@ const handler = async (
   }
 
   const client = createAxiosInstance({
-    baseURL: 'https://v2.jokeapi.dev/joke'
+    baseURL: 'https://v2.jokeapi.dev/joke',
   });
 
-  const {data} = await client.get<JokeResponse>('/Any');
-
+  const { data } = await client.get<JokeResponse>('/Any');
 
   if (data?.error) {
     throw new AppError('Error getting joke', 500);
-  } 
+  }
 
-  const resp = {    responses: [],    output: {      joke: data as never    },  };
+  const resp = { responses: [], output: { joke: data as never } };
 
   return res.json(resp);
 };

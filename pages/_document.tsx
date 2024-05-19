@@ -1,10 +1,9 @@
-import { EmotionCache } from '@emotion/react';
 import createEmotionServer from '@emotion/server/create-instance';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import createEmotionCache from '../config/css-cache';
 
 export default class MyDocument extends Document<{
-  emotionStyleTags: EmotionCache;
+  emotionStyleTags: any;
 }> {
   render() {
     return (

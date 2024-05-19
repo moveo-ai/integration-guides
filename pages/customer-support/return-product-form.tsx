@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Head from 'next/head';
 import { useSyncLanguage } from 'ni18n';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { Resolver, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import Alert from '../../components/Alert';
 import ConfirmationBox from '../../components/ConfirmationBox';
@@ -106,7 +106,7 @@ function ReturnProduct() {
     formState: { errors },
     control,
   } = useForm<FormInputs>({
-    resolver: yupResolver(returnProductSchema),
+    resolver: yupResolver(returnProductSchema) as Resolver<FormInputs>,
     reValidateMode: 'onChange',
     defaultValues: {
       productId: '',
