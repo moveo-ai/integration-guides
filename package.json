@@ -28,7 +28,7 @@
   "dependencies": {
     "@emotion/server": "^11.11.0",
     "@hookform/resolvers": "^3.4.0",
-    "axios": "^1.6.8",
+    "axios": "^1.8.4",
     "axios-retry": "^4.2.0",
     "dotenv": "^16.4.5",
     "jsonwebtoken": "^9.0.2",
