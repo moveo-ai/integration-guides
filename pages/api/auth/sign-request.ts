@@ -69,8 +69,8 @@ const handler = async (
       !req.headers.referer.includes(MOVEO_HOST))
   ) {
     req.log.warn(
-      'Received request from unauthorized origin: ',
-      req.headers.referer
+      { referer: req.headers.referer },
+      'Received request from unauthorized origin'
     );
     throw new ForbiddenError();
   }

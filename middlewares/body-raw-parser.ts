@@ -12,7 +12,7 @@ const bodyRawParser =
     // Read the body as buffer and store it in rawBody
     req.rawBody = await getRawBody(req, { limit: '10mb' });
     // Parse the body and set it as req.body for future handler
-    req.body = JSON.parse(Buffer.from(req.rawBody).toString('utf-8'));
+    req.body = JSON.parse(req.rawBody.toString('utf-8'));
 
     await handler(req, res);
   };

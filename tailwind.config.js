@@ -1,5 +1,9 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./pages/**/*.tsx', './pages/**/*.js', './components/**/*.tsx'],
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
       margin: {
@@ -14,7 +18,5 @@ module.exports = {
   corePlugins: {
     outline: false,
   },
-  variants: {
-    margin: ['last'],
-  },
+  plugins: [],
 };

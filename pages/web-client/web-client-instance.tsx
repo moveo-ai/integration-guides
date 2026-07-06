@@ -4,7 +4,6 @@ import styles from '../../styles/web-client-preview.module.css';
 
 declare global {
   interface Window {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     MoveoAI: any;
   }
 }

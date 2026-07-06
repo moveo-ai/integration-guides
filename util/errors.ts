@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AxiosError } from 'axios';
 import { Logger } from 'pino';
 import { string } from 'prop-types';
@@ -12,7 +11,6 @@ export class AppError extends Error {
     }
 
     // Axios errors
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const axiosError = innerError as any;
     if (axiosError.response) {
       const { response } = axiosError as AxiosError<any>;

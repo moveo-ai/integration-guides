@@ -91,11 +91,12 @@ const Input = ({
               value={value}
               inputMode={inputMode}
               autoComplete="off"
-              inputProps={
-                type === 'number' || isCurrency
-                  ? { pattern: '[0-9,.]*' }
-                  : { maxLength }
-              }
+              slotProps={{
+                htmlInput:
+                  type === 'number' || isCurrency
+                    ? { pattern: '[0-9,.]*' }
+                    : { maxLength },
+              }}
               onChange={(e) => handleChange(e, onChange)}
             />
           );

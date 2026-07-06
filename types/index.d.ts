@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 interface FacebookPageContext {
   thread_type?: 'USER_TO_PAGE' | 'USER_TO_USER' | 'GROUP';
   tid?: string;

@@ -136,7 +136,6 @@ function Survey() {
             {Array(5)
               .fill('')
               .map((_, index) => (
-                // eslint-disable-next-line jsx-a11y/click-events-have-key-events
                 <div
                   key={index}
                   className={cn(styles.circleContainer, {

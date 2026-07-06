@@ -7,16 +7,25 @@ import useWebview from '../useWebview';
 
 jest.mock('../../lib/facebook');
 
-const createLocationFromUrl = (url: string) =>
-  new URL(url) as unknown as Location;
+// jsdom's window.location cannot be reassigned, so navigate with history.
+// This keeps the localhost origin, so the request URLs below are localhost/dev.
+const mockWindowLocation = (url: string) => {
+  const { pathname, search } = new URL(url);
+  window.history.replaceState({}, '', pathname + search);
+};
 
 describe('useWebview', () => {
   const server = setupServer(
-    http.get('https://moveo.ai/api/auth/sign-request', () =>
+    // localhost origin -> relative sign-request resolves against it
+    http.get('/api/auth/sign-request', () =>
       HttpResponse.json({ token: 'sign-token' })
     ),
+    http.get('http://localhost/api/auth/sign-request', () =>
+      HttpResponse.json({ token: 'sign-token' })
+    ),
+    // getIntegrationUrl('localhost') returns the dev channels host
     http.post(
-      'https://channels.moveo.ai/v1/facebook/i1/webview',
+      'https://channels.dev.moveo.ai/v1/facebook/i1/webview',
       async ({ request }) => {
         const body = await request.json();
         return HttpResponse.json(body);
@@ -24,7 +33,6 @@ describe('useWebview', () => {
     )
   );
 
-  const oldWindowLocation = window.location;
   let getPageContextSpy;
 
   const pageContext: FacebookPageContext = {
@@ -46,14 +54,11 @@ describe('useWebview', () => {
   });
 
   afterAll(() => {
-    // restore `window.location`
-    window.location = oldWindowLocation;
     return server.close();
   });
 
   test('without a channel in the url', async () => {
-    delete window.location;
-    window.location = createLocationFromUrl('https://moveo.ai/');
+    mockWindowLocation('https://moveo.ai/');
     renderHook(() => useWebview('demo'));
     expect(initFacebookSDK).not.toHaveBeenCalled();
     expect(getPageContextSpy).not.toHaveBeenCalled();
@@ -61,10 +66,7 @@ describe('useWebview', () => {
   });
 
   test('facebook with missing parameters', async () => {
-    delete window.location;
-    window.location = createLocationFromUrl(
-      'https://moveo.ai/?channel=facebook'
-    );
+    mockWindowLocation('https://moveo.ai/?channel=facebook');
 
     const { result } = renderHook(() => useWebview('demo'));
 
@@ -81,8 +83,7 @@ describe('useWebview', () => {
   });
 
   test('facebook send context', async () => {
-    delete window.location;
-    window.location = createLocationFromUrl(
+    mockWindowLocation(
       'https://moveo.ai/?channel=facebook&integration_id=i1&session_id=s1&user_id=u1'
     );
 
