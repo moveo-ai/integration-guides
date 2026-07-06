@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@source "../pages/**/*.{js,ts,jsx,tsx}";
+@source "../components/**/*.{js,ts,jsx,tsx}";
+
+@config "../tailwind.config.js";
 
 :root {
   --font-primary: 'Inter', -apple-system, system-ui, blinkmacsystemfont,

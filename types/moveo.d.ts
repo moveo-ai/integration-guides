@@ -2,13 +2,7 @@ import { NextApiRequest } from 'next';
 import pino from 'pino';
 
 type MoveoChannel =
-  | 'facebook'
-  | 'viber'
-  | 'web'
-  | 'zendesk'
-  | 'hangout'
-  | 'apifon'
-  | 'sunco';
+  'facebook' | 'viber' | 'web' | 'zendesk' | 'hangout' | 'apifon' | 'sunco';
 
 type MoveoContextWithPageInfo = {
   context: MoveoContext;
@@ -103,10 +97,9 @@ type NextApiRequestWithLog = NextApiRequest & {
   moveo_id: string;
   id: string;
   log: pino.Logger;
-  rawBody?: ArrayBuffer;
+  rawBody?: Buffer;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ApiHandler<T = any> =
   | NextApiHandler<T>
   | ((

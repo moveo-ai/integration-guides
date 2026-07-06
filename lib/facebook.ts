@@ -15,7 +15,7 @@ function getUserContextFromFacebook() {
       window.dispatchEvent(new Event('page-context-loaded'));
     },
     function error(err) {
-      logger.error('Error getting the user context from Facebook', err);
+      logger.error(err, 'Error getting the user context from Facebook');
     }
   );
 }
@@ -44,7 +44,7 @@ export default function init() {
     return;
   }
 
-  logger.info('Initialize Facebook SDK with pageId:', pageId);
+  logger.info({ pageId }, 'Initialize Facebook SDK with pageId');
 
   window.extAsyncInit = getUserContextFromFacebook;
   injectSDK();
@@ -72,10 +72,10 @@ export function getSupportedFeatures() {
   window.MessengerExtensions.getSupportedFeatures(
     function success(result) {
       const features = result.supported_features;
-      logger.info('Supported features: ', features);
+      logger.info({ features }, 'Supported features');
     },
     function error(err) {
-      logger.info('Error in supported features: ', err);
+      logger.info(err, 'Error in supported features');
     }
   );
 }

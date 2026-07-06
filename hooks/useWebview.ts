@@ -2,8 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { logger } from '../config/logger';
 import initFacebookSDK, {
   closeWebview as closeFacebookWebview,
-  getPageContext as getFacebookPageContext,
   getSupportedFeatures as getFacebookFeatures,
+  getPageContext as getFacebookPageContext,
 } from '../lib/facebook';
 import { getContextFromMoveo, sendContextToMoveo } from '../lib/moveo';
 import initSuncoSdk, { closeWebview as closeSuncoWebview } from '../lib/sunco';

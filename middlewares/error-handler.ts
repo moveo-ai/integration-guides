@@ -24,7 +24,6 @@ const errorHandlerMiddleware =
 
     try {
       await handler(req, res);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (_error: any) {
       const error = AppError.fromError(req.log, _error);
       req.log.error(error);

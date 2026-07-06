@@ -15,5 +15,9 @@ export default function createEmotionCache() {
     insertionPoint = emotionInsertionPoint ?? undefined;
   }
 
-  return createCache({ key: 'mui-style', insertionPoint });
+  // Must stay 'css' to match what MUI v9 emits during SSR (its styled-engine
+  // default). With a custom key, the client renders `<key>-*` classes while the
+  // server still emits `css-*`, causing hydration mismatches (verified: 4 → 0).
+  // The webviews reference keeps a custom key, but that repo is on MUI v7.
+  return createCache({ key: 'css', insertionPoint });
 }

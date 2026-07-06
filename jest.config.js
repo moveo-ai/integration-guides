@@ -1,3 +1,21 @@
+// msw v2 and its dependency tree ship as ESM only; babel-jest must transpile
+// them instead of ignoring everything under node_modules.
+const esModules = [
+  'msw',
+  '@mswjs',
+  '@open-draft',
+  '@bundled-es-modules',
+  'until-async',
+  'rettime',
+  'strict-event-emitter',
+  'headers-polyfill',
+  'outvariant',
+  'is-node-process',
+  'tough-cookie',
+  'cookie',
+  'path-to-regexp',
+].join('|');
+
 module.exports = {
   collectCoverageFrom: [
     '**/*.{js,jsx,ts,tsx}',
@@ -31,10 +49,13 @@ module.exports = {
   transform: {
     /* Use babel-jest to transpile tests with the next/babel preset
     https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object */
-    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
+    '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': [
+      'babel-jest',
+      { presets: ['next/babel'] },
+    ],
   },
   transformIgnorePatterns: [
-    '/node_modules/',
+    `/node_modules/(?!(${esModules})/)`,
     '^.+\\.module\\.(css|sass|scss)$',
   ],
   setupFilesAfterEnv: ['<rootDir>/setupTests.js'],

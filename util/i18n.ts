@@ -7,7 +7,7 @@ import PT from '../public/locales/pt-BR/translation.json';
 
 export const i18nInstance = async (lang = undefined) => {
   i18n.init({
-    initImmediate: false,
+    initAsync: false,
     lng: lang,
     load: 'currentOnly',
     ns: ['translation'],
